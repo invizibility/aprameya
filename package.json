@@ -17,6 +17,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "babel-plugin-styled-components": "^1.13.2",
+    "directory-named-webpack-plugin": "^4.0.1",
     "gatsby": "^3.10.2",
     "gatsby-plugin-google-analytics": "^3.10.0",
     "gatsby-plugin-image": "^1.10.1",
@@ -30,6 +31,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
+    "react-spring": "^9.2.4",
     "styled-components": "^5.3.0"
   }
 }
