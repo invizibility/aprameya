@@ -5,10 +5,15 @@ import styled from "styled-components";
 
 const Container = styled.nav`
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    font-size: 1.2rem;
+  }
   ul {
     list-style: none;
-    padding: 0;
-    padding-right: 150px;
+    display: flex;
+    padding-right: 5%;
 
     li {
       text-transform: lowercase;
@@ -31,11 +36,15 @@ const Header = ({ title }) => {
   });
   return (
     <AnimatedNav style={{ ...props, marginLeft: "100px" }}>
-      <ul style={{ listStyleType: "none" }}>
-        <li style={{ float: "left", fontWeight: 700 }}>{title}</li>
-        <li style={{ float: "right", paddingLeft: "10px" }}>about</li>
-        <li style={{ float: "right", paddingLeft: "10px" }}>contact</li>
-        <li style={{ float: "right", paddingLeft: "10px" }}>cv</li>
+      <div style={{ flexDirection: "row", fontWeight: 700 }}>{title}</div>
+      <ul style={{ flexDirection: "row", listStyleType: "none" }}>
+        <li style={{ justifyContent: "flex-end", paddingLeft: "10px" }}>
+          about
+        </li>
+        <li style={{ justifyContent: "flex-end", paddingLeft: "10px" }}>
+          contact
+        </li>
+        <li style={{ justifyContent: "flex-end", paddingLeft: "10px" }}>cv</li>
       </ul>
     </AnimatedNav>
   );

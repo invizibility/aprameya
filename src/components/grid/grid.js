@@ -1,5 +1,7 @@
 import React, { useCallback } from "react";
-import Item from "item";
+import Item from "./item";
+import styled from "styled-components";
+import MEDIA from "../../helpers/mediaTemplates";
 
 const Container = styled.div`
   display: grid;

@@ -2,14 +2,18 @@ import * as React from "react";
 import { graphql } from "gatsby";
 import Header from "../components/header/header";
 import Intro from "../components/intro/intro";
+import Grid from "../components/grid";
 
 // markup
 const IndexPage = ({ data }) => {
   return (
     <>
       <Header title="aprameya mysore" />
-      <div style={{ position: "absolute", top: "75px" }}>
-        <Intro data={data.markdownRemark} />
+      <div style={{ position: "absolute", top: "7.5%" }}>
+        <Intro data={data.homeJson.content.childMarkdownRemark} />
+      </div>
+      <div style={{ position: "absolute", top: "20%" }}>
+        <Grid items={data.homeJson.grid} />
       </div>
     </>
   );
@@ -19,21 +23,26 @@ export default IndexPage;
 
 export const query = graphql`
   query HomepageQuery {
-    markdownRemark {
-      html
-    }
-    allImageSharp(
-      filter: {
-        children: {}
-        id: { ne: "70c45604-f9d4-5987-8533-76cd9bd304b6" }
-      }
-    ) {
-      nodes {
-        fluid(maxWidth: 500) {
-          ...GatsbyImageSharpFluid_withWebp
-          originalName
+    homeJson {
+      title
+      content {
+        childMarkdownRemark {
+          html
+          rawMarkdownBody
         }
-        id
+      }
+      grid {
+        title
+        copy
+        route
+        image {
+          childImageSharp {
+            fluid(maxHeight: 500, quality: 90) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+            gatsbyImageData
+          }
+        }
       }
     }
   }

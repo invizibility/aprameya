@@ -1,34 +1,40 @@
 {
   "title": "Home",
   "content": "intro.md",
-  "gallery": [{
+  "grid": [{
     "title": "React Context",
     "copy": "For global styles.",
+    "route": "reactcontext",
     "image": "../images/gallery/react-context.jpg"
   },
   {
     "title": "Page Transitions",
     "copy": "Component-based for easy usage.",
+    "route": "reactcontext",
     "image": "../images/gallery/page-transitions.jpg"
   },
   {
     "title": "Intersection Observer",
     "copy": "Including a polyfill for Safari.",
+    "route": "reactcontext",
     "image": "../images/gallery/intersection-observer.jpg"
   },
   {
     "title": "project 4",
     "copy": "project 4 desc",
+    "route": "reactcontext",
     "image": "../images/gallery/intersection-observer.jpg"
   },
   {
     "title": "project 5",
     "copy": "project 5 desc",
+    "route": "reactcontext",
     "image": "../images/gallery/intersection-observer.jpg"
   },
   {
     "title": "project 6",
     "copy": "project 6 desc",
+    "route": "reactcontext",
     "image": "../images/gallery/intersection-observer.jpg"
   }]
 }
