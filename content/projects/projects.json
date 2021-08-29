@@ -1,3 +1,64 @@
 {
-    
+  "projects": [
+    {
+      "title": "EuropaViz",
+      "subtitleData": {
+        "date": "2021",
+        "skills": "d3, React, python"
+      },
+      "headerImage": "3dgenome_header.png",
+      "slug": "europaviz",
+      "content": "3dgenome.html"
+    },
+    {
+      "title": "CyberSAM",
+      "subtitleData": {
+        "date": "2018-2021",
+        "skills": "d3, React, Splunk"
+      },
+      "headerImage": "3dgenome_header.png",
+      "slug": "cybersam",
+      "content": "3dgenome.html"
+    },
+    {
+      "title": "3D Genome",
+      "subtitleData": {
+        "date": "2016",
+        "skills": "d3"
+      },
+      "headerImage": "3dgenome_header.png",
+      "slug": "3dgenome",
+      "content": "3dgenome.html"
+    },
+    {
+      "title": "Soylent Saviour",
+      "subtitleData": {
+        "date": "2016",
+        "skills": "d3"
+      },
+      "headerImage": "3dgenome_header.png",
+      "slug": "soylentsaviour",
+      "content": "3dgenome.html"
+    },
+    {
+      "title": "Understanding Hyperspectral Microscopy",
+      "subtitleData": {
+        "date": "2016",
+        "skills": "d3"
+      },
+      "headerImage": "3dgenome/images/3dgenome_header.png",
+      "slug": "hyperspectralmicro",
+      "content": "3dgenome.html"
+    },
+    {
+      "title": "Visualizing the Brain",
+      "subtitleData": {
+        "date": "2016",
+        "skills": "d3"
+      },
+      "headerImage": "3dgenome/images/3dgenome_header.png",
+      "slug": "brainviz",
+      "content": "3dgenome.html"
+    }
+  ]
 }
