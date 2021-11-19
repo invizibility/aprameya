@@ -24,7 +24,8 @@ const Copy = styled.p`
 
 const StyledGridImage = styled.img`
   width: 100%;
-  max-height: 275px;
+  max-height: 320px;
+  aspect-ratio: 3/2;
 `;
 
 const Item = ({ title, copy, route, image }) => {

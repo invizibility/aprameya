@@ -20,7 +20,6 @@ const Subtitle = ({
   return (
     <div>
       <h4>{date}</h4>
-      <br />
       <h4>{skills}</h4>
     </div>
   );
@@ -33,12 +32,19 @@ const ProjectBodyStyled = styled.div`
 
   .half > img {
     width: 49%;
+    ${MEDIA.TABLET`
+    width: 100%;
+  `}
   }
 
   figure {
+    display: block;
     ${MEDIA.TABLET`
     display: block;
   `};
+  }
+
+  figure figcaption {
   }
 `;
 

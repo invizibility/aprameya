@@ -1,0 +1,34 @@
+Background:
+
+Europa is a moon of Jupiter that is 390 Million miles away from earth. It’s covered in ice and underneath that ice is liquid water. Scientists suspect these below-surface Europan bodies of water are some of the highest probability regions in the solar system for containing signs of extraterrestrial life.
+
+NASA is sending a spacecraft to land on the icy surface of Europa in 2038. Lander (shown above) will drill into the ice, collect multiple samples from below the surface, analyze these samples for traces of life, and beam that information back to earth for scientists to analyze further. JPL is responsible for building, testing, and operating this spacecraft, and creating all the necessary software required to do so.
+
+Unsurprisingly, pulling this mission off successfully is thought to be a very tricky endeavor. Here’s why  
+
+Communication with Lander is extremely difficult 
+1 hour delay to receive data
+2 hour delay to send data
+Long transmission times leads to causes reliance on forward projections to make
+The communication time window is only open 10-20% of the overall mission duration 
+Due to these time constraints and other resource constraints, there is risk of results never being reported back
+Understanding what autonomous rovers perceive as they navigate extraterrestrial environments is essential to developing the systems that will optimize the execution of science objectives on other planets.
+Problem 
+The problem I helped solved can be broken down into 2 parts
+Why is planning hard?
+Planning is hard because the time window to deviate from the autonomous decision making process is small. The deviation requires a complex consensus building process between many Science, Operational, and Engineering teams. The tooling suite used to facilitate these discussions is currently hard to use. 
+Why is the tool suite hard to use?
+The current state of autonomous science planning is a highly fragmented ecosystem of reporting tools. This fragmentation leads to a high redundancy of software engineering efforts. This open feedback loop makes consensus building less efficient thus wasting more resources in the process. 
+
+
+
+Solution: Time Series + 3D Robotics Data + Parameter Tuning Interactions 
+My development of a modular framework enabled visualization of science data with parameter tuning in a closed loop during both the planning and execution phase. In the planning phase, modular visualization and parameter tuning allows for more efficient discussions about a wider swath of the potential activity scheduling solution space.In the operations phase, This framework allows for rapid decision making in tight windows. I used industry leading research to inspire my development of this new framework. I used my UX Research from studying the current fragmented ecosystem and Identified the need for a framework that could serve the unique usage of increasingly autonomous science missions.
+
+Impact
+My solution reduced the amount of friction in the resource tradeoff and decision making process in the Euopra mission. This saved time, money, and effort and allowed for faster iteration without redundant engineering efforts. Due to the success and flexibility of this framework, other autonomous science missions have inquired about integration into their planning and operations process. 
+
+
+
+
+

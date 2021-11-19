@@ -5,6 +5,7 @@ import MEDIA from "../../helpers/mediaTemplates";
 import PROJECTS from "../../../content/projects/projects.json";
 import Project from "../project/project";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useTransition, animated, config } from "react-spring";
 
 const Container = styled.div`
   display: grid;
@@ -20,31 +21,11 @@ const Container = styled.div`
 
 const Grid = ({ items }) => (
   <div>
-    <Switch>
-      {items.map((item, i) => {
-        console.log(item);
-        console.log(PROJECTS.projects);
-        const thisProjInfo = PROJECTS.projects.filter(
-          (proj) => proj.title === item.title
-        )[0];
-        console.log(thisProjInfo);
-        return (
-          <Route path={`/${item.route}`} key={`route-${i}`}>
-            <div style={{}}>
-              <Project {...thisProjInfo} />
-            </div>
-          </Route>
-        );
-      })}
-
-      <Route path="/">
-        <Container>
-          {items.map((item, i) => (
-            <Item {...item} key={i} />
-          ))}
-        </Container>
-      </Route>
-    </Switch>
+    <Container>
+      {items.map((item, i) => (
+        <Item {...item} key={i} />
+      ))}
+    </Container>
   </div>
 );
 

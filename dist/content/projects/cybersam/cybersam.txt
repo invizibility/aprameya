@@ -1,0 +1,88 @@
+Background:
+
+At NASA JPL, spacecraft mission Ground Data Systems (GDS's) retain and use tons of sensitive ITAR data, which makes them attractive targets
+for state sponsored hackers. Over the past several years, these hacks have become increasingly problematic for JPL, leading to a NASA mandate that each mission be responsible for developing cyber situational awareness tools to prevent these incidents.
+
+Compounding the severity of this cybersecurity issue, the sysadmins who preside over these GDS systems were given full responsibility of implementing this mandate, without any mission specific cybersecurity tools to assist their efforts. GDS sysadmins preside over
+environments with up to several thousands of machines, so creating situational awareness out of the raw logs from all these machines can be a borderline impossible task.
+
+We created CyberSAM as a generalizable solution to this issue. Our objective with the CyberSAM tool suite was to provide a collection of advanced anomaly detection algorithms to parse and interpret the firehose of mission environment log data, coupled with an elegant UI
+to deliver actionable intelligence to mission sysadmins.
+
+Here's an animated short I created demonstrating the value proposition of the early CyberSAM releases:
+
+<video>
+
+Process:
+
+Initial User Research:
+
+The first stage of this project was to architect a user research strategy to identify pain points, scope the user base and use cases, and sketch out possible interactions.
+I created a variety of artifacts to distill my findings from many interviews I conducted with a variety of stakeholders.
+
+<figure with UX artifacts>
+
+This initial pass of UX research fueled the first implementation of CyberSAM, which was built as a series of dashboards in a Splunk Enterprise Application. The first iteration app was a great success and brought in 6 JPL missions as clients.
+However, the increase in popularity of our application led to many feature requests which exposed glaring weaknesses in the scalability of a dashboard-based application as a situational awareness solution. Fortunately our overwhelming success with the 
+first iteration of the app created organizational buy-in allowing us to expand the UI/UX team from just myself to a team of 5 engineers and designers, whom I led to bring about the second and third major releases of our app.
+
+Developing the Product:
+
+Issues with V1:
+
+Scaling our product to support many more use cases and clients forced us to significantly re-evaluate the design and implementation of our entire application on several fronts.
+On the front end, I led the UI/UX team in a second round of research to identify specific pain points with the dashboard-based paradigm. 
+This led to many revelations about the nature of limitations we were hitting with our dashboard-based app, ranging from 
+
+- information dilution
+- branching factor
+-- inverse correlation between feature development and usability
+
+
+<figure with Dashboard issues>
+
+On the more technical side of the front end, I led another effort to address the implementation specific issues that prevented us from achieving op
+
+- contrived component development
+-- inverse correlation between product scale and DX
+
+<figure with before and after code>
+
+------
+
+Solutions (v2):
+
+-- SPA functionality increased usability and accelerated feature development
+
+<movie with drawer>
+-- using react spring animations instead of inefficient legacy API's improves Cybersecurity Analysis UX
+
+<movie with 3d>
+-- leveraging React rendering context allows for powerful new analytical functionalities impossible in traditional dashboards
+
+<movie with code from scratch>
+-- React expands design capabilities beyond limitations of dashboard-base UI framework 
+
+Developing for the future v3
+
+<picture of custom layouts>
+--Architected custom layout engine to allow for maximum UI extensibility
+
+<diagram with webpack>
+--fundamental changes to the app development and build process allow for streamlining of new UI features
+
+Impact:
+
+
+-Impact: Increased Operational efficiences and cybersecurity effectivess across every mission
+---Over 2 years has become the defacto cybersecurity situational awareness tool for every mission operating out of JPL. 
+---Currently in planning stages to support implementations for all future missions
+---Recognized by NASA Mission Directorate as a one of the premier cybersecurity tools across all NASA centers. Planning implementations across NASA centers outside JPL
+-Created Business opportunities for JPL Cybersecurity Organization
+---Grew team from 3 to 20+, including team of 5 UI/UX focused engineers and designers
+---Created new XFN opos between Cybersecurity and mission operations (JPL's primary business model)
+-Impact: Influenced Splunk Product Development Strategy by evangelizing CyberSAM
+- Spoke at Splunk Conf 2020 and identified as one of the top presentations of the year
+- During 2020, led industry partner development from the JPL side to showcase 
+- worked with splunks industry partner development program to influence product roadmap and rollout strategy of React in Splunk Enterprise
+- Presented industry partner keynote at Splunk Conf 2021 to announce official public release of React in Splunk Enterprise

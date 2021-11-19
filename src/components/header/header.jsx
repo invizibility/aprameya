@@ -27,6 +27,8 @@ const Container = styled.nav`
   }
 `;
 
+//const StyledLink = styled.Link``
+
 const AnimatedNav = animated(Container);
 
 const Header = ({ title }) => {
@@ -47,17 +49,39 @@ const Header = ({ title }) => {
     >
       <AnimatedNav style={{ ...props }}>
         <div style={{ flexDirection: "row", fontWeight: 700 }}>
-          <Link to="/">{title}</Link>
+          <Link
+            to="/"
+            style={{ fontFamily: "Fette Unz Fraktur", fontSize: 24 }}
+          >
+            {title}
+          </Link>
         </div>
         <ul style={{ flexDirection: "row", listStyleType: "none" }}>
           {/* <li style={{ justifyContent: "flex-end", paddingLeft: "10px" }}>
             <Link to="/about">About</Link>
           </li> */}
-          <li style={{ justifyContent: "flex-end", paddingLeft: "10px" }}>
-            <Link to="/contact">contact</Link>
+          <li
+            style={{
+              justifyContent: "flex-end",
+              paddingLeft: "10px",
+              fontFamily: "Fann Grotesque Regular",
+            }}
+          >
+            <Link to="/contact" style={{ textDecoration: "none" }}>
+              contact
+            </Link>
           </li>
-          <li style={{ justifyContent: "flex-end", paddingLeft: "10px" }}>
-            <Link to="/cv">CV</Link>
+          <li
+            style={{
+              justifyContent: "flex-end",
+              paddingLeft: "10px",
+              fontFamily: "Fann Grotesque Regular",
+              textDecoration: "none",
+            }}
+          >
+            <Link to="/cv" style={{ textDecoration: "none" }}>
+              CV
+            </Link>
           </li>
         </ul>
       </AnimatedNav>
