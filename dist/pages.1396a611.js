@@ -80632,7 +80632,7 @@ var Intro = function Intro() {
         //backdropFilter: "blur(3px)",
         padding: "5px",
         borderRadius: "5px",
-        backgroundColor: "rgba(255,255,255,0.6)"
+        backgroundColor: "rgba(255,255,255,0.65)"
       }
     }, "I am a product designer and technologist specializing in", " ", React.createElement("span", {
       style: {
@@ -80646,23 +80646,37 @@ var Intro = function Intro() {
 
 var Contact = function Contact() {
   return React.createElement(React.Fragment, null, React.createElement(headerinfo_1.default, {
-    content: React.createElement("p", null, "Here are ways you can reach me:", React.createElement("br", null), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
+    content: React.createElement("p", {
+      style: {
+        fontFamily: "Georgia Pro Regular",
+        //backdropFilter: "blur(3px)",
+        padding: "5px",
+        borderRadius: "5px",
+        backgroundColor: "rgba(255,255,255,0.65)"
+      }
+    }, "Here are ways you can reach me:", React.createElement("br", null), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
       href: "https://github.com/invizibility"
     }, "Github")), React.createElement("li", null, React.createElement("a", {
-      href: "https://twitter.com/invizibility"
-    }, "Twitter")), React.createElement("li", null, React.createElement("a", {
       href: "https://www.linkedin.com/in/aprameya-mysore/"
     }, "LinkedIn")), React.createElement("li", null, React.createElement("a", {
-      href: "mailto:a.mysore@gmail.com"
+      href: "mailto:a.mysore92@gmail.com"
     }, "Email"))))
   }));
 };
 
 var CV = function CV() {
   return React.createElement(React.Fragment, null, React.createElement(headerinfo_1.default, {
-    content: React.createElement("p", null, "Aprameya is a product designer sdfsd technologist specializing in", " ", React.createElement("b", null, "data visualization"), " at", " ", React.createElement("a", {
-      href: "https://www.jpl.nasa.gov/"
-    }, "NASA JPL"), React.createElement("br", null), "Here are some of his selected projects:")
+    content: React.createElement("p", {
+      style: {
+        fontFamily: "Georgia Pro Regular",
+        //backdropFilter: "blur(3px)",
+        padding: "5px",
+        borderRadius: "5px",
+        backgroundColor: "rgba(255,255,255,0.65)"
+      }
+    }, "Please reach out to me at my", " ", React.createElement("a", {
+      href: "mailto:a.mysore92@gmail.com"
+    }, "email"), " for a resume/CV :)")
   }));
 };
 
@@ -80930,7 +80944,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56898" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57117" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

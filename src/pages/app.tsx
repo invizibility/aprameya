@@ -43,7 +43,7 @@ const Intro = () => (
             //backdropFilter: "blur(3px)",
             padding: "5px",
             borderRadius: "5px",
-            backgroundColor: "rgba(255,255,255,0.6)",
+            backgroundColor: "rgba(255,255,255,0.65)",
           }}
         >
           I am a product designer and technologist specializing in{" "}
@@ -67,7 +67,15 @@ const Contact = () => (
     {/* <DataVizBackground></DataVizBackground> */}
     <HeaderInfo
       content={
-        <p>
+        <p
+          style={{
+            fontFamily: "Georgia Pro Regular",
+            //backdropFilter: "blur(3px)",
+            padding: "5px",
+            borderRadius: "5px",
+            backgroundColor: "rgba(255,255,255,0.65)",
+          }}
+        >
           Here are ways you can reach me:
           <br />
           <ul>
@@ -75,15 +83,12 @@ const Contact = () => (
               <a href="https://github.com/invizibility">Github</a>
             </li>
             <li>
-              <a href="https://twitter.com/invizibility">Twitter</a>
-            </li>
-            <li>
               <a href="https://www.linkedin.com/in/aprameya-mysore/">
                 LinkedIn
               </a>
             </li>
             <li>
-              <a href="mailto:a.mysore@gmail.com">Email</a>
+              <a href="mailto:a.mysore92@gmail.com">Email</a>
             </li>
           </ul>
         </p>
@@ -97,12 +102,17 @@ const CV = () => (
     {/* <DataVizBackground></DataVizBackground> */}
     <HeaderInfo
       content={
-        <p>
-          Aprameya is a product designer sdfsd technologist specializing in{" "}
-          <b>data visualization</b> at{" "}
-          <a href="https://www.jpl.nasa.gov/">NASA JPL</a>
-          <br />
-          Here are some of his selected projects:
+        <p
+          style={{
+            fontFamily: "Georgia Pro Regular",
+            //backdropFilter: "blur(3px)",
+            padding: "5px",
+            borderRadius: "5px",
+            backgroundColor: "rgba(255,255,255,0.65)",
+          }}
+        >
+          Please reach out to me at my{" "}
+          <a href="mailto:a.mysore92@gmail.com">email</a> for a resume/CV :)
         </p>
       }
     />
