@@ -40005,7 +40005,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Container = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-right: 100px;\n  margin-left: 100px;\n  div {\n    font-size: 1.2rem;\n  }\n  ul {\n    list-style: none;\n    display: flex;\n\n    li {\n      text-transform: lowercase;\n      font-size: 1.2rem;\n\n      & + li {\n        margin-left: 1rem;\n      }\n    }\n  }\n"]))); //const StyledLink = styled.Link``
+var Container = _styledComponents.default.nav(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-right: 150px;\n  margin-left: 150px;\n\n  div {\n    font-size: 1.2rem;\n  }\n  ul {\n    list-style: none;\n    display: flex;\n\n    li {\n      text-transform: lowercase;\n      font-size: 1.2rem;\n\n      & + li {\n        margin-left: 1rem;\n      }\n    }\n  }\n"]))); //const StyledLink = styled.Link``
 
 
 var AnimatedNav = (0, _reactSpring.animated)(Container);
@@ -40042,7 +40042,8 @@ var Header = function Header(_ref) {
     to: "/",
     style: {
       fontFamily: "Fette Unz Fraktur",
-      fontSize: 24
+      fontSize: 30,
+      backgroundColor: "rgba(255, 255, 255, 0.6)"
     }
   }, title)), /*#__PURE__*/_react.default.createElement("ul", {
     style: {
@@ -40089,9 +40090,7 @@ var _react = _interopRequireWildcard(require("react"));
 
 var _reactSpring = require("react-spring");
 
-var _styledComponents = _interopRequireDefault(require("styled-components"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _styledComponents = require("styled-components");
 
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
@@ -76756,13 +76755,16 @@ function forceGraph(graphCanvas, context, data, graphWidth, height) {
   var simulation = d3.forceSimulation().force("center", d3.forceCenter(graphWidth / 2, height / 2)).force("x", d3.forceX(graphWidth / 2).strength(0.1)).force("y", d3.forceY(height / 2).strength(0.2)).force("charge", d3.forceManyBody().strength(-50)) //.force("charge", d3.forceCollide().strength(-30))
   .force("link", d3.forceLink().strength(1).id(function (d) {
     return d.id;
-  })).alphaTarget(0).alphaDecay(0.005);
+  })).alphaTarget(0).alphaDecay(0.003);
   var transform = d3.zoomIdentity;
   console.log(data);
+  var colors = d3.scaleSequential(d3.interpolatePiYG);
   var radiusFixedData = {
-    nodes: _toConsumableArray(data.nodes.map(function (d, i) {
+    nodes: _toConsumableArray(data.nodes.map(function (d, i, x) {
       return _objectSpread(_objectSpread({}, d), {}, {
-        radius: Math.floor(Math.random() * 5)
+        radius: Math.floor(Math.random() * 5),
+        //radius: 1,
+        color: colors[Math.floor(Math.random() * 8)]
       });
     })),
     edges: data.edges
@@ -76775,9 +76777,22 @@ function forceGraph(graphCanvas, context, data, graphWidth, height) {
       console.log("zooming");
       transform = d3.event.transform;
       simulationUpdate();
-    }
+    } // d3.select(graphCanvas)
+    //   .call(
+    //     d3
+    //       .drag()
+    //       .subject(dragsubject)
+    //       .on("start", dragstarted)
+    //       .on("drag", dragged)
+    //       .on("end", dragended)
+    //   )
+    //   .call(
+    //     d3
+    //       .zoom()
+    //       .scaleExtent([1 / 10, 8])
+    //       .on("zoom", zoomed)
+    //   );
 
-    d3.select(graphCanvas).call(d3.drag().subject(dragsubject).on("start", dragstarted).on("drag", dragged).on("end", dragended)).call(d3.zoom().scaleExtent([1 / 10, 8]).on("zoom", zoomed));
 
     function dragsubject() {
       var i,
@@ -79823,8 +79838,8 @@ var DataVizBackground = function DataVizBackground() {
       var height = 80; //   canvas.width = width + 14;
       //   canvas.height = height + 5;
 
-      canvas.width = width * 40;
-      canvas.height = height * 60; //   canvas.style.top = "-5.5px";
+      canvas.width = width * 20;
+      canvas.height = height * 15; //   canvas.style.top = "-5.5px";
       //   canvas.style.left = "-4px";
 
       canvas.style.top = -1 * canvas.height / 2 + height / 2 + "px";
@@ -79856,7 +79871,91 @@ var DataVizBackground = function DataVizBackground() {
 
 var _default = DataVizBackground;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-spring":"../node_modules/react-spring/dist/react-spring.esm.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./forcegraph":"components/datavizbackground/forcegraph.js","d3":"../node_modules/d3/src/index.js"}],"constants/breakpoints.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-spring":"../node_modules/react-spring/dist/react-spring.esm.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","./forcegraph":"components/datavizbackground/forcegraph.js","d3":"../node_modules/d3/src/index.js"}],"../content/fonts/fette-unz-fraktur.woff":[function(require,module,exports) {
+module.exports = "/fette-unz-fraktur.b5c8cb4d.woff";
+},{}],"../content/fonts/NibPro-Regular.woff":[function(require,module,exports) {
+module.exports = "/NibPro-Regular.e6d3ac1a.woff";
+},{}],"../content/fonts/FannGrotesquePro-Regular.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-Regular.2d200e9e.woff";
+},{}],"../content/fonts/FannGrotesquePro-SemiBold.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-SemiBold.70629ba6.woff";
+},{}],"../content/fonts/FannGrotesquePro-Thin.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-Thin.0c505bee.woff";
+},{}],"../content/fonts/FannGrotesquePro-ThinItalic.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-ThinItalic.2c72e1b1.woff";
+},{}],"../content/fonts/FannGrotesquePro-SemiBoldItalic.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-SemiBoldItalic.b468de4b.woff";
+},{}],"../content/fonts/FannGrotesquePro-Italic.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-Italic.e580c7a7.woff";
+},{}],"../content/fonts/GeorgiaPro-Light.woff2":[function(require,module,exports) {
+module.exports = "/GeorgiaPro-Light.669c6f7d.woff2";
+},{}],"../content/fonts/GeorgiaProW01Regular.woff2":[function(require,module,exports) {
+module.exports = "/GeorgiaProW01Regular.9126c29b.woff2";
+},{}],"../content/fonts/GeorgiaPro-Semibold.woff2":[function(require,module,exports) {
+module.exports = "/GeorgiaPro-Semibold.a667acae.woff2";
+},{}],"../content/fonts/GeorgiaPro-Bold.woff2":[function(require,module,exports) {
+module.exports = "/GeorgiaPro-Bold.c4b01f15.woff2";
+},{}],"../content/fonts/ApercuRegular.otf":[function(require,module,exports) {
+module.exports = "/ApercuRegular.2646c9f7.otf";
+},{}],"../content/fonts/ApercuMedium.otf":[function(require,module,exports) {
+module.exports = "/ApercuMedium.a52c85b8.otf";
+},{}],"../content/fonts/ApercuLight.otf":[function(require,module,exports) {
+module.exports = "/ApercuLight.e939250e.otf";
+},{}],"../content/fonts/ApercuProMono.otf":[function(require,module,exports) {
+module.exports = "/ApercuProMono.839f25bb.otf";
+},{}],"components/FontStyles.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _styledComponents = require("styled-components");
+
+var _fetteUnzFraktur = _interopRequireDefault(require("../../content/fonts/fette-unz-fraktur.woff"));
+
+var _NibProRegular = _interopRequireDefault(require("../../content/fonts/NibPro-Regular.woff"));
+
+var _FannGrotesqueProRegular = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-Regular.woff"));
+
+var _FannGrotesqueProSemiBold = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-SemiBold.woff"));
+
+var _FannGrotesqueProThin = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-Thin.woff"));
+
+var _FannGrotesqueProThinItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-ThinItalic.woff"));
+
+var _FannGrotesqueProSemiBoldItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-SemiBoldItalic.woff"));
+
+var _FannGrotesqueProItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-Italic.woff"));
+
+var _GeorgiaProLight = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-Light.woff2"));
+
+var _GeorgiaProW01Regular = _interopRequireDefault(require("../../content/fonts/GeorgiaProW01Regular.woff2"));
+
+var _GeorgiaProSemibold = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-Semibold.woff2"));
+
+var _GeorgiaProBold = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-Bold.woff2"));
+
+var _ApercuRegular = _interopRequireDefault(require("../../content/fonts/ApercuRegular.otf"));
+
+var _ApercuMedium = _interopRequireDefault(require("../../content/fonts/ApercuMedium.otf"));
+
+var _ApercuLight = _interopRequireDefault(require("../../content/fonts/ApercuLight.otf"));
+
+var _ApercuProMono = _interopRequireDefault(require("../../content/fonts/ApercuProMono.otf"));
+
+var _templateObject;
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+//import RobotoWoff2 from "./fonts/roboto-condensed-v19-latin-regular.woff2";
+var FontStyles = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\n@font-face {\n    font-family: 'Georgia Pro Bold';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Light';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Regular';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Semi Bold';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n  font-family: 'Fette Unz Fraktur';\n  src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: 'Nib Pro Regular';\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Mono\";\n    src: url(", ") format('woff');\n}\n"])), _GeorgiaProBold.default, _GeorgiaProLight.default, _GeorgiaProW01Regular.default, _GeorgiaProSemibold.default, _fetteUnzFraktur.default, _NibProRegular.default, _FannGrotesqueProRegular.default, _FannGrotesqueProSemiBold.default, _FannGrotesqueProSemiBoldItalic.default, _FannGrotesqueProThin.default, _FannGrotesqueProThinItalic.default, _FannGrotesqueProItalic.default, _ApercuRegular.default, _ApercuMedium.default, _ApercuLight.default, _ApercuProMono.default);
+var _default = FontStyles;
+exports.default = _default;
+},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../content/fonts/fette-unz-fraktur.woff":"../content/fonts/fette-unz-fraktur.woff","../../content/fonts/NibPro-Regular.woff":"../content/fonts/NibPro-Regular.woff","../../content/fonts/FannGrotesquePro-Regular.woff":"../content/fonts/FannGrotesquePro-Regular.woff","../../content/fonts/FannGrotesquePro-SemiBold.woff":"../content/fonts/FannGrotesquePro-SemiBold.woff","../../content/fonts/FannGrotesquePro-Thin.woff":"../content/fonts/FannGrotesquePro-Thin.woff","../../content/fonts/FannGrotesquePro-ThinItalic.woff":"../content/fonts/FannGrotesquePro-ThinItalic.woff","../../content/fonts/FannGrotesquePro-SemiBoldItalic.woff":"../content/fonts/FannGrotesquePro-SemiBoldItalic.woff","../../content/fonts/FannGrotesquePro-Italic.woff":"../content/fonts/FannGrotesquePro-Italic.woff","../../content/fonts/GeorgiaPro-Light.woff2":"../content/fonts/GeorgiaPro-Light.woff2","../../content/fonts/GeorgiaProW01Regular.woff2":"../content/fonts/GeorgiaProW01Regular.woff2","../../content/fonts/GeorgiaPro-Semibold.woff2":"../content/fonts/GeorgiaPro-Semibold.woff2","../../content/fonts/GeorgiaPro-Bold.woff2":"../content/fonts/GeorgiaPro-Bold.woff2","../../content/fonts/ApercuRegular.otf":"../content/fonts/ApercuRegular.otf","../../content/fonts/ApercuMedium.otf":"../content/fonts/ApercuMedium.otf","../../content/fonts/ApercuLight.otf":"../content/fonts/ApercuLight.otf","../../content/fonts/ApercuProMono.otf":"../content/fonts/ApercuProMono.otf"}],"constants/breakpoints.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -79922,6 +80021,8 @@ exports.default = void 0;
 
 var _react = _interopRequireWildcard(require("react"));
 
+var _FontStyles = _interopRequireDefault(require("../../components/FontStyles"));
+
 var _styledComponents = _interopRequireDefault(require("styled-components"));
 
 var _mediaTemplates = _interopRequireDefault(require("../../helpers/mediaTemplates"));
@@ -79950,11 +80051,11 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Title = _styledComponents.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: block;\n  font-size: 1.2rem;\n  font-weight: 500;\n  margin: 2rem 0rem 1rem;\n"])));
+var Title = _styledComponents.default.span(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: block;\n  font-size: 1.2rem;\n  font-weight: 500;\n  margin: 1rem 0rem 0.5rem;\n  text-decoration: \"none\";\n  font-family: \"Fann Grotesque Regular\";\n"])));
 
-var Copy = _styledComponents.default.p(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  color: #757575;\n  margin: 0 0rem 2rem;\n\n  ", ";\n"])), _mediaTemplates.default.TABLET(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin-bottom: 4rem;\n  "]))));
+var Copy = _styledComponents.default.p(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  color: #757575;\n  margin: 0 0rem 1rem;\n  text-decoration: \"none\";\n  font-family: \"Fann Grotesque Regular\";\n\n  ", ";\n"])), _mediaTemplates.default.TABLET(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    margin-bottom: 4rem;\n  "]))));
 
-var StyledGridImage = _styledComponents.default.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 100%;\n  max-height: 320px;\n  aspect-ratio: 3/2;\n"])));
+var StyledGridImage = _styledComponents.default.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 100%;\n  max-height: 320px;\n  aspect-ratio: 3/2;\n  border-radius: 5px;\n"])));
 
 var Item = function Item(_ref) {
   var title = _ref.title,
@@ -79984,7 +80085,10 @@ var Item = function Item(_ref) {
     },
     tabIndex: 0
   }, /*#__PURE__*/_react.default.createElement(_reactRouterDom.Link, {
-    to: "/".concat(route)
+    to: "/".concat(route),
+    style: {
+      textDecoration: "none"
+    }
   }, /*#__PURE__*/_react.default.createElement(StyledGridImage, {
     src: image
   }), /*#__PURE__*/_react.default.createElement(Title, null, title), /*#__PURE__*/_react.default.createElement(Copy, null, copy)));
@@ -79992,62 +80096,116 @@ var Item = function Item(_ref) {
 
 var _default = Item;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../helpers/mediaTemplates":"helpers/mediaTemplates.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../content/projects/projects.json":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../../components/FontStyles":"components/FontStyles.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../helpers/mediaTemplates":"helpers/mediaTemplates.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js"}],"../content/projects/projects.json":[function(require,module,exports) {
 module.exports = {
   "projects": [{
-    "title": "EuropaViz",
+    "title": "V.A.S.T.",
     "subtitleData": {
-      "date": "2021",
-      "skills": "d3, React, python"
+      "date": "2021-Present",
+      "skills": "Figma, Adobe Creative Suite, d3.js, three.js, Styled Components, React, React Testing Library, Python"
     },
-    "headerImage": "3dgenome_header.png",
-    "slug": "europaviz",
-    "content": "3dgenome.html"
+    "headerImage": "vast_header.png",
+    "slug": "vast",
+    "content": "vast.html"
   }, {
     "title": "CyberSAM",
     "subtitleData": {
-      "date": "2018-2021",
-      "skills": "d3, React, Splunk"
+      "date": "2018-Present",
+      "skills": "Figma, Adobe Creative Suite, d3.js, node.js, three.js, Styled Components, Babel, Webpack, React, React Testing Library, Typescript, Splunk Enterprise, Python, Docker, bash"
     },
-    "headerImage": "3dgenome_header.png",
+    "headerImage": "cybersam_header1.png",
     "slug": "cybersam",
     "content": "cybersam.html"
   }, {
-    "title": "3D Genome",
+    "title": "Visualizing RNA Secondary Structures",
+    "subtitleData": {
+      "date": "2017",
+      "skills": "d3.js, node.js + express, levelDB"
+    },
+    "headerImage": "secondarystruct_header.png",
+    "slug": "secondarystruct",
+    "content": "secondarystruct.html"
+  }, {
+    "title": "Visualizing the 3D Genome Pt. 3",
+    "subtitleData": {
+      "date": "2017",
+      "skills": "Paper Prototyping, three.js, React"
+    },
+    "headerImage": "3dgenome_pt3_header.png",
+    "slug": "3dgenome_pt3",
+    "content": "3dgenome_pt3.html"
+  }, {
+    "title": "Visualizing the 3D Genome Pt. 2",
     "subtitleData": {
       "date": "2016",
-      "skills": "d3"
+      "skills": "Adobe Creative Suite, d3.js, node.js, Cytoscape, R"
     },
-    "headerImage": "3dgenome_header.png",
-    "slug": "3dgenome",
-    "content": "3dgenome.html"
+    "headerImage": "3dgenome_pt2_header.png",
+    "slug": "3dgenome_pt2",
+    "content": "3dgenome_pt2.html"
+  }, {
+    "title": "Visualizing the 3D Genome Pt. 1",
+    "subtitleData": {
+      "date": "2016",
+      "skills": "d3.js, three.js, node.js + express"
+    },
+    "headerImage": "3dgenome_pt1_header.png",
+    "slug": "3dgenome_pt1",
+    "content": "3dgenome_pt1.html"
+  }, {
+    "title": "Visualizing Geophysical Fluids",
+    "subtitleData": {
+      "date": "2016",
+      "skills": "Paper Prototyping, openFrameworks"
+    },
+    "headerImage": "geophysfluid_header.png",
+    "slug": "geophysfluid",
+    "content": "geophysfluid.html"
   }, {
     "title": "Soylent Saviour",
     "subtitleData": {
       "date": "2016",
-      "skills": "d3"
+      "skills": "d3.js, node.js, maptastic.js, ArcGIS, Makeblock X-Y Plotter, Rhino 3D, Makerbot, CNC Router, PETG Vacuum Former"
     },
-    "headerImage": "3dgenome_header.png",
+    "headerImage": "soylentsaviour_header.png",
     "slug": "soylentsaviour",
     "content": "3dgenome.html"
   }, {
-    "title": "Understanding Hyperspectral Microscopy",
+    "title": "Sonifying Hyperspectral Microscopy",
     "subtitleData": {
       "date": "2016",
       "skills": "d3"
     },
     "headerImage": "hyperspectralmicro_header.png",
     "slug": "hyperspectralmicro",
-    "content": "3dgenome.html"
+    "content": "hyperspectralmicro.html"
   }, {
-    "title": "Visualizing the Brain",
+    "title": "Visualizing Mindfulness",
     "subtitleData": {
       "date": "2016",
-      "skills": "d3"
+      "skills": "Freesurfer, three.js, XTK.js"
+    },
+    "headerImage": "brainviz_header.png",
+    "slug": "brainviz",
+    "content": "brainviz.html"
+  }, {
+    "title": "EEG Visualization Composer",
+    "subtitleData": {
+      "date": "2014",
+      "skills": "R, Processing, Java, GLSL"
+    },
+    "headerImage": "eegviz_header.png",
+    "slug": "eegviz",
+    "content": "eegviz.html"
+  }, {
+    "title": "Animating Advanced Optical Methods",
+    "subtitleData": {
+      "date": "2011",
+      "skills": "Paper Prototyping, Adobe Creative Suite"
     },
     "headerImage": "3dgenome/images/3dgenome_header.png",
-    "slug": "brainviz",
-    "content": "3dgenome.html"
+    "slug": "microanimations",
+    "content": "microanimations.html"
   }]
 };
 },{}],"components/project/project.tsx":[function(require,module,exports) {
@@ -80142,11 +80300,19 @@ var mediaTemplates_1 = __importDefault(require("../../helpers/mediaTemplates"));
 var Subtitle = function Subtitle(_ref) {
   var date = _ref.date,
       skills = _ref.skills;
-  return react_1.default.createElement("div", null, react_1.default.createElement("h4", null, date), react_1.default.createElement("h4", null, skills));
+  return react_1.default.createElement("div", null, react_1.default.createElement("h4", {
+    style: {
+      fontFamily: "Fann Grotesque Thin"
+    }
+  }, date), react_1.default.createElement("h4", {
+    style: {
+      fontFamily: "Fann Grotesque Thin"
+    }
+  }, skills));
 };
 
-var ProjectBodyStyled = styled_components_1.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  img {\n    width: 100%;\n  }\n\n  .half > img {\n    width: 49%;\n    ", "\n  }\n\n  figure {\n    display: block;\n    ", ";\n  }\n\n  figure figcaption {\n  }\n"])), mediaTemplates_1.default.TABLET(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n  "]))), mediaTemplates_1.default.TABLET(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: block;\n  "]))));
-var HeaderImageStyled = styled_components_1.default.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 100%;\n"])));
+var ProjectBodyStyled = styled_components_1.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  p {\n    font-family: \"Georgia Pro Regular\";\n  }\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-family: \"Fann Grotesque SemiBold\";\n  }\n\n  .question {\n    font-family: \"Fann Grotesque SemiBold Italic\";\n  }\n  .question span {\n    text-decoration: underline;\n  }\n  img {\n    width: 100%;\n  }\n\n  .half > img {\n    width: 49%;\n    height: auto;\n    ", "\n  }\n\n  figure {\n    display: block;\n    ", ";\n  }\n\n  figure figcaption {\n    font-family: \"Fann Grotesque Thin Italic\";\n  }\n\n  li {\n    font-family: \"Georgia Pro Regular\";\n\n    margin-bottom: 0.5rem;\n  }\n\n  blockquote {\n    padding-left: 1.618em;\n    padding-right: 1.618em;\n    border-left: 6px solid #3498db;\n  }\n  blockquote p {\n    font-family: \"Fann Grotesque Regular\", \"Segoe UI\", Arial, sans-serif;\n\n    font-size: 1.1rem;\n    line-height: 1;\n    margin-bottom: 24 px;\n    margin-bottom: 1.5 rem;\n  }\n"])), mediaTemplates_1.default.TABLET(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n  "]))), mediaTemplates_1.default.TABLET(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: block;\n  "]))));
+var HeaderImageStyled = styled_components_1.default.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 100%;\n  border-radius: 10px;\n"])));
 
 var ProjectBody = function ProjectBody(_ref2) {
   var bodyHtml = _ref2.bodyHtml;
@@ -80219,7 +80385,12 @@ var Project = function Project(_ref3) {
   }, [slug, content]);
   return react_1.default.createElement(react_1.default.Fragment, null, react_1.default.createElement(HeaderImageStyled, {
     src: "/content/projects/".concat(slug, "/images/").concat(headerImage)
-  }), react_1.default.createElement("h2", null, title), react_1.default.createElement(Subtitle, Object.assign({}, subtitleData)), react_1.default.createElement(react_1.Suspense, {
+  }), react_1.default.createElement("h2", {
+    style: {
+      fontFamily: "Fann Grotesque SemiBold",
+      fontSize: "2em"
+    }
+  }, title), react_1.default.createElement(Subtitle, Object.assign({}, subtitleData)), react_1.default.createElement(react_1.Suspense, {
     fallback: react_1.default.createElement(react_1.default.Fragment, null, "loading...")
   }, react_1.default.createElement(ProjectBody, {
     bodyHtml: bodyContent
@@ -80284,100 +80455,76 @@ var Grid = function Grid(_ref) {
 
 var _default = Grid;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./item":"components/grid/item.jsx","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../helpers/mediaTemplates":"helpers/mediaTemplates.js","../../../content/projects/projects.json":"../content/projects/projects.json","../project/project":"components/project/project.tsx","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-spring":"../node_modules/react-spring/dist/react-spring.esm.js"}],"../content/fonts/fette-unz-fraktur.woff":[function(require,module,exports) {
-module.exports = "/fette-unz-fraktur.b5c8cb4d.woff";
-},{}],"../content/fonts/NibPro-Regular.woff":[function(require,module,exports) {
-module.exports = "/NibPro-Regular.e6d3ac1a.woff";
-},{}],"../content/fonts/FannGrotesquePro-Regular.woff":[function(require,module,exports) {
-module.exports = "/FannGrotesquePro-Regular.2d200e9e.woff";
-},{}],"../content/fonts/FannGrotesquePro-SemiBold.woff":[function(require,module,exports) {
-module.exports = "/FannGrotesquePro-SemiBold.70629ba6.woff";
-},{}],"../content/fonts/FannGrotesquePro-Thin.woff":[function(require,module,exports) {
-module.exports = "/FannGrotesquePro-Thin.0c505bee.woff";
-},{}],"../content/fonts/ApercuRegular.otf":[function(require,module,exports) {
-module.exports = "/ApercuRegular.2646c9f7.otf";
-},{}],"../content/fonts/ApercuMedium.otf":[function(require,module,exports) {
-module.exports = "/ApercuMedium.a52c85b8.otf";
-},{}],"../content/fonts/ApercuLight.otf":[function(require,module,exports) {
-module.exports = "/ApercuLight.e939250e.otf";
-},{}],"../content/fonts/ApercuProMono.otf":[function(require,module,exports) {
-module.exports = "/ApercuProMono.839f25bb.otf";
-},{}],"components/FontStyles.js":[function(require,module,exports) {
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
-
-var _styledComponents = require("styled-components");
-
-var _fetteUnzFraktur = _interopRequireDefault(require("../../content/fonts/fette-unz-fraktur.woff"));
-
-var _NibProRegular = _interopRequireDefault(require("../../content/fonts/NibPro-Regular.woff"));
-
-var _FannGrotesqueProRegular = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-Regular.woff"));
-
-var _FannGrotesqueProSemiBold = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-SemiBold.woff"));
-
-var _FannGrotesqueProThin = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-Thin.woff"));
-
-var _ApercuRegular = _interopRequireDefault(require("../../content/fonts/ApercuRegular.otf"));
-
-var _ApercuMedium = _interopRequireDefault(require("../../content/fonts/ApercuMedium.otf"));
-
-var _ApercuLight = _interopRequireDefault(require("../../content/fonts/ApercuLight.otf"));
-
-var _ApercuProMono = _interopRequireDefault(require("../../content/fonts/ApercuProMono.otf"));
-
-var _templateObject;
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-//import RobotoWoff2 from "./fonts/roboto-condensed-v19-latin-regular.woff2";
-var FontStyles = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\n@font-face {\n  font-family: 'Fette Unz Fraktur';\n  src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: 'Nib Pro Regular';\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Mono\";\n    src: url(", ") format('woff');\n}\n"])), _fetteUnzFraktur.default, _NibProRegular.default, _FannGrotesqueProRegular.default, _FannGrotesqueProSemiBold.default, _FannGrotesqueProThin.default, _ApercuRegular.default, _ApercuMedium.default, _ApercuLight.default, _ApercuProMono.default);
-var _default = FontStyles;
-exports.default = _default;
-},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../content/fonts/fette-unz-fraktur.woff":"../content/fonts/fette-unz-fraktur.woff","../../content/fonts/NibPro-Regular.woff":"../content/fonts/NibPro-Regular.woff","../../content/fonts/FannGrotesquePro-Regular.woff":"../content/fonts/FannGrotesquePro-Regular.woff","../../content/fonts/FannGrotesquePro-SemiBold.woff":"../content/fonts/FannGrotesquePro-SemiBold.woff","../../content/fonts/FannGrotesquePro-Thin.woff":"../content/fonts/FannGrotesquePro-Thin.woff","../../content/fonts/ApercuRegular.otf":"../content/fonts/ApercuRegular.otf","../../content/fonts/ApercuMedium.otf":"../content/fonts/ApercuMedium.otf","../../content/fonts/ApercuLight.otf":"../content/fonts/ApercuLight.otf","../../content/fonts/ApercuProMono.otf":"../content/fonts/ApercuProMono.otf"}],"../content/home/homepage.json":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./item":"components/grid/item.jsx","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../helpers/mediaTemplates":"helpers/mediaTemplates.js","../../../content/projects/projects.json":"../content/projects/projects.json","../project/project":"components/project/project.tsx","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-spring":"../node_modules/react-spring/dist/react-spring.esm.js"}],"../content/home/homepage.json":[function(require,module,exports) {
 module.exports = {
   "title": "Home",
   "content": "intro.md",
   "grid": [{
-    "title": "EuropaViz",
-    "copy": "Visualization Tool Suite for Autonomous Science on Europa",
-    "route": "projects/europaviz",
-    "image": "content/images/gallery/europaviz_gallery.png"
+    "title": "V.A.S.T.",
+    "copy": "Visualization Toolkit for Extraplanetary Autonomous Science",
+    "route": "projects/vast",
+    "image": "content/images/gallery/vast_gallery.png"
   }, {
     "title": "CyberSAM",
     "copy": "Visualization Tool Suite for Space Mission Cybersecurity",
     "route": "projects/cybersam",
     "image": "content/images/gallery/cybersam_gallery.png"
   }, {
-    "title": "3D Genome",
-    "copy": "Interface Design Study for Structural Genomics Research",
-    "route": "projects/3dgenome",
-    "image": "content/images/gallery/3dgenome_gallery.png"
+    "title": "Visualizing RNA Secondary Structures",
+    "copy": "Building an Interactive Editor to Understand RNA Basepairing",
+    "route": "projects/secondarystruct",
+    "image": "content/images/gallery/secondarystruct_gallery.png"
+  }, {
+    "title": "Visualizing the 3D Genome Pt. 3",
+    "copy": "Part 3 of My Thesis Work on Visualizing Structural Genomics",
+    "route": "projects/3dgenome_pt3",
+    "image": "content/images/gallery/3dgenome_pt3_gallery.png"
+  }, {
+    "title": "Visualizing the 3D Genome Pt. 2",
+    "copy": "Part 2 of My Thesis Work on Visualizing Structural Genomics",
+    "route": "projects/3dgenome_pt2",
+    "image": "content/images/gallery/3dgenome_pt2_gallery.png"
+  }, {
+    "title": "Visualizing the 3D Genome Pt. 1",
+    "copy": "Part 1 of My Thesis Work on Visualizing Structural Genomics",
+    "route": "projects/3dgenome_pt1",
+    "image": "content/images/gallery/3dgenome_pt1_gallery.png"
+  }, {
+    "title": "Visualizing Geophysical Fluids",
+    "copy": "Designing Interfaces to Model Glacier Flow",
+    "route": "projects/geophysfluid",
+    "image": "content/images/gallery/geophysfluid_gallery.png"
   }, {
     "title": "Soylent Saviour",
     "copy": "Visualizing Topologies of Gentrification with Mold and Robots",
     "route": "projects/soylentsaviour",
     "image": "content/images/gallery/soylentsaviour_gallery.png"
   }, {
-    "title": "Understanding Hyperspectral Microscopy",
-    "copy": "Software and Animations for Understanding Novel Advancements in Microscopy",
+    "title": "Sonifying Hyperspectral Microscopy",
+    "copy": "Understanding Complex Cellular Biology through Sound",
     "route": "projects/hyperspectralmicro",
     "image": "content/images/gallery/hyperspectralmicro_gallery.png"
   }, {
-    "title": "Visualizing the Brain",
-    "copy": "Scientific and Artistic Experiments in Visualizing Neural Activity Data",
+    "title": "Visualizing Mindfulness",
+    "copy": "Visualizing Neural Activations in Mindfulness Research",
     "route": "projects/brainviz",
     "image": "content/images/gallery/brainviz_gallery.png"
+  }, {
+    "title": "EEG Visualization Composer",
+    "copy": "Toolkit for Artistic Explorations into EEG Data",
+    "route": "projects/eegviz",
+    "image": "content/images/gallery/eegviz_gallery.png"
+  }, {
+    "title": "Animating Advanced Optical Methods",
+    "copy": "Visually Explaining Innovations in Optical Microscopy",
+    "route": "projects/microanimations",
+    "image": "content/images/gallery/microanimations_gallery.png"
   }]
 };
 },{}],"pages/app.tsx":[function(require,module,exports) {
 "use strict";
+
+var _templateObject;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -80390,6 +80537,8 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 var __createBinding = this && this.__createBinding || (Object.create ? function (o, m, k, k2) {
   if (k2 === undefined) k2 = k;
@@ -80451,6 +80600,8 @@ var project_1 = __importDefault(require("../components/project/project"));
 
 var FontStyles_1 = __importDefault(require("../components/FontStyles"));
 
+var styled_components_1 = require("styled-components");
+
 var react_router_dom_1 = require("react-router-dom");
 
 var react_spring_1 = require("react-spring");
@@ -80459,23 +80610,30 @@ var homepage_json_1 = __importDefault(require("../../content/home/homepage.json"
 
 var projects_json_1 = __importDefault(require("../../content/projects/projects.json"));
 
+var colorChange = styled_components_1.keyframes(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  0% { color: red; }\n  50% { color: blue; }\n  100% { color: red; }\n"])));
+
 var Intro = function Intro() {
-  return React.createElement(React.Fragment, null, React.createElement(datavizbackground_1.default, null), React.createElement(headerinfo_1.default, {
+  return React.createElement(React.Fragment, null, React.createElement(headerinfo_1.default, {
     content: React.createElement("p", {
       style: {
-        fontFamily: "Nib Pro Regular",
-        backdropFilter: "blur(2.5px)",
+        fontFamily: "Georgia Pro Regular",
+        //backdropFilter: "blur(3px)",
         padding: "5px",
-        borderRadius: "5px"
+        borderRadius: "5px",
+        backgroundColor: "rgba(255,255,255,0.6)"
       }
-    }, "I am a product designer and technologist specializing in", " ", React.createElement("b", null, "data visualization. "), "Currently I work at ", React.createElement("a", {
+    }, "I am a product designer and technologist specializing in", " ", React.createElement("span", {
+      style: {
+        fontFamily: "Georgia Pro Bold"
+      }
+    }, "data visualization.", " "), "Currently I work at ", React.createElement("a", {
       href: "https://www.jpl.nasa.gov/"
     }, "NASA JPL"), ".", React.createElement("br", null), "I am inspired by creatives both in the sciences and the arts who deal with themes of complexity and flow of information.", React.createElement("br", null), "Here is a selection of my work:")
   }));
 };
 
 var Contact = function Contact() {
-  return React.createElement(headerinfo_1.default, {
+  return React.createElement(React.Fragment, null, React.createElement(headerinfo_1.default, {
     content: React.createElement("p", null, "Here are ways you can reach me:", React.createElement("br", null), React.createElement("ul", null, React.createElement("li", null, React.createElement("a", {
       href: "https://github.com/invizibility"
     }, "Github")), React.createElement("li", null, React.createElement("a", {
@@ -80485,15 +80643,15 @@ var Contact = function Contact() {
     }, "LinkedIn")), React.createElement("li", null, React.createElement("a", {
       href: "mailto:a.mysore@gmail.com"
     }, "Email"))))
-  });
+  }));
 };
 
 var CV = function CV() {
-  return React.createElement(headerinfo_1.default, {
+  return React.createElement(React.Fragment, null, React.createElement(headerinfo_1.default, {
     content: React.createElement("p", null, "Aprameya is a product designer sdfsd technologist specializing in", " ", React.createElement("b", null, "data visualization"), " at", " ", React.createElement("a", {
       href: "https://www.jpl.nasa.gov/"
     }, "NASA JPL"), React.createElement("br", null), "Here are some of his selected projects:")
-  });
+  }));
 };
 
 console.log(homepage_json_1.default); // markup
@@ -80604,14 +80762,14 @@ var IndexPage = function IndexPage() {
   react_spring_1.useChain([prevLocationTransRef, currLocationTransRef, gridTransitionRef, projTransitionRef]); // make a route for each item
 
   console.log(homepage_json_1.default);
-  return React.createElement("div", null, React.createElement(header_1.default, {
+  return React.createElement("div", null, React.createElement(datavizbackground_1.default, null), React.createElement(header_1.default, {
     title: "aprameya mysore"
   }), React.createElement("div", {
     style: {
       position: "relative",
       top: "100px",
-      marginLeft: "100px",
-      marginRight: "100px"
+      marginLeft: "150px",
+      marginRight: "150px"
     }
   }, currLocationTransition(function (style, item, t, key) {
     return React.createElement(react_spring_1.animated.div, {
@@ -80687,7 +80845,7 @@ var App = function App() {
 };
 
 exports.App = App;
-},{"react":"../node_modules/react/index.js","../components/header/header":"components/header/header.jsx","../components/header/headerinfo":"components/header/headerinfo.jsx","../components/datavizbackground/datavizbackground":"components/datavizbackground/datavizbackground.jsx","../components/grid/grid":"components/grid/grid.jsx","../components/project/project":"components/project/project.tsx","../components/FontStyles":"components/FontStyles.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-spring":"../node_modules/react-spring/dist/react-spring.esm.js","../../content/home/homepage.json":"../content/home/homepage.json","../../content/projects/projects.json":"../content/projects/projects.json"}],"pages/index.tsx":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","../components/header/header":"components/header/header.jsx","../components/header/headerinfo":"components/header/headerinfo.jsx","../components/datavizbackground/datavizbackground":"components/datavizbackground/datavizbackground.jsx","../components/grid/grid":"components/grid/grid.jsx","../components/project/project":"components/project/project.tsx","../components/FontStyles":"components/FontStyles.js","styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","react-router-dom":"../node_modules/react-router-dom/esm/react-router-dom.js","react-spring":"../node_modules/react-spring/dist/react-spring.esm.js","../../content/home/homepage.json":"../content/home/homepage.json","../../content/projects/projects.json":"../content/projects/projects.json"}],"pages/index.tsx":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -80760,7 +80918,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63820" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52142" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

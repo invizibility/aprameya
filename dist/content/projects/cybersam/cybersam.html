@@ -1,13 +1,13 @@
 <div id="content" class="page-content" itemprop="articleBody">
-    <h4>Background:</h4>
+    <h3>Background:</h3>
 
-<p>At NASA JPL, spacecraft mission Ground Data Systems (GDS's) retain and use tons of sensitive ITAR data, which makes them attractive targets for state sponsored hackers. Over the past several years, these hacks have become increasingly problematic for JPL, leading to a NASA executive mandate that each mission be responsible for developing cyber situational awareness tools to prevent these incidents.
+<p>At NASA JPL, spacecraft mission Ground Data Systems (GDS's) retain and use tons of sensitive ITAR data, which makes them attractive targets for state sponsored hackers. Over the past several years, these hacks have become increasingly problematic for JPL, leading to a NASA executive mandate that each mission be responsible for developing cyber situational awareness tools to prevent these incidents.<br><br>
 
-    At the time of CyberSAM’s conception, no software solution existed for GDS sysadmins to easily monitor the cybersecurity posture of their mission networks. These sysadmins preside over environments with up to several thousands of machines, so achieving situational awareness out of the raw logs from all these machines without a robust analytics platform is a borderline impossible task.
+    At the time of CyberSAM’s conception, no software solution existed for GDS sysadmins to easily monitor the cybersecurity posture of their mission networks. These sysadmins preside over environments with up to several thousands of machines, so achieving situational awareness out of the raw logs from all these machines without a robust analytics platform is a borderline impossible task.<br><br>
     
-    My team and I created CyberSAM as a turnkey solution for GDS sysadmins desperately in need of observability into complex mission networks. Our objective with the CyberSAM tool suite was to provide a collection of advanced anomaly detection algorithms to parse and interpret the firehose of mission environment log data, coupled with an elegant UI to deliver actionable intelligence to mission sysadmins. 
+    My team and I created CyberSAM as a turnkey solution for GDS sysadmins desperately in need of observability into complex mission networks. Our objective with the CyberSAM tool suite was to provide a collection of advanced anomaly detection algorithms to parse and interpret the firehose of mission environment log data, coupled with an elegant UI to deliver actionable intelligence to mission sysadmins.<br><br> 
     
-    Here's an animated short I created demonstrating the value proposition of the early CyberSAM releases:
+    Here's an animated short I created demonstrating the value proposition of the early CyberSAM releases:    
 
     <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/630564173?h=b5f11d7f6a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="cyberSAM v1 Demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
     
@@ -15,30 +15,74 @@
 
 
 
-<h4>Process</h4>
+<h3>Process:</h3>
 
-<p>My primary role on the CyberSAM team was to create and drive a roadmap for design and development of the UI/UX of this tool suite. This involved extensive user research with mission clients, architecting a product lifecycle for the UI over a 3 year period, and pushing the boundaries of UI implementation inside Splunk Enterprise to the point of setting new industry standards for dashboard development.</p>
+<p>My primary role on the CyberSAM team was to create and drive a roadmap for design and development of the UI/UX of this tool suite. This involved extensive user research with mission clients, architecting a product lifecycle for the UI over a 3 year period, and pushing the boundaries of UI implementation inside Splunk Enterprise to the point of setting new industry standards for dashboard development with React.</p>
 
-<h5>Initial User Research</h5>
+<h4>Initial User Research</h4>
 
 <p>I began work on CyberSAM by architecting a user research strategy to interview stakeholders, identify pain points, scope the user base and use cases, and sketch out possible interaction designs. I distilled my UX research findings into a series of artifacts used to communicate a product roadmap to project leadership and initiate the development process.</p>
 
-<figure class="half">
-<img src="/content/projects/3dgenome/images/3dgenome-900-450-1.png">
-<img src="/content/projects/3dgenome/images/3dgenome-900-450-2.png">	
-<figcaption>Directed graphs are a visual form our researchers found useful for static representation of genome structure complexity. We tested the viablity of these graphs as a means of interacting with and exploring structures.</figcaption>
+<figure >
+<img src="/content/projects/cybersam/images/uxartifacts3.png">
+<figcaption>A selection of the artifacts created during my initial user research for CyberSAM</figcaption>
 </figure>
 
-<p>We used an iterative prototyping process leveraging both interactive prototypes and paper prototypes. The range of design materials Peter and I utilized in with the Guttman Lab researchers included paper storyboards, whiteboard sessions, 2d vector illustrated storyboards, and interactive javascript visualizations. Learning to move seamlessly between paper prototype materials and interactive digital prototypes as we progressed through the conceptual development of our data visualization solution was a central learning experience for me in this project.</p>
+<h4>Iterating & Delivering the Product</h4>
 
-<figure class="half">
-<img src="/content/projects/3dgenome/images/3dgenome_image3.png">
-<img src="/content/projects/3dgenome/images/3dgenome_image4.png">
-<figcaption>Testing general ideas for visualization features with paper storyboards and zoning in on specific interactions with javascript prototypes.</figcaption>
+<p>The first version of CyberSAM was built as a series of dashboards encapsulated in a Splunk Enterprise application--it was a great success and brought in 6 JPL missions as clients.<br><br>
+    The rapid increase in popularity of CyberSAM led to many feature requests which exposed glaring weaknesses in the scalability of a dashboard-based application as a situational awareness solution. Fortunately, our overwhelming success with the first iteration of the app created organizational buy-in, allowing us to expand the UI/UX team from just myself to a team of 5 engineers and designers.<br><br>
+    In order to scale our product to support the influx of use cases and clients, A significant overhaul of the design and implementation of our entire application’s front end was necessary. I led our new UI/UX team to deliver this upgrade over the course of 2 major semantic versions.<br><br>
+    On the UX front, my team and I conducted a second round of UX research to identify specific pain points users were experiencing with the dashboard-based paradigm. We unearthed many inherent limitations of a dashboard-based implementation as a means of achieving the ideal user experience we aimed to deliver for our user base. I coined the umbrella term “dashboard fatigue” to describe the combined negative user experience and developer experience our app suffered as we pushed against the ceiling of what was possible with Splunk Enterprise dashboards.<br><br>
+</p>
+
+<figure >
+    <img src="/content/projects/cybersam/images/dashboardissues.png">
+    <figcaption>Describing "Dashboard Fatigue" -- as a dashboard-based app scales, the density of information on each dashboard and the overall number of documents to maintain scale untenably. This leads to dilution of information on each page and unnecessarily large source footprints.</figcaption>
 </figure>
 
-<p>I am currently extending this work as part of my thesis research at Carnegie Mellon centered around designing data xsx visualizations for genomics. More information on my thesis and my exploration of the structure-function genomics data space can be seen on my <a href="https://invizibility.github.io/blog">blog</a></p>
+<p>
+    I also led a parallel effort on the implementation front to address our team’s growing struggle to develop custom visualizations and complex interaction designs within the constraints of Splunk Enterprise’s SplunkJS framework. Our UX objectives increasingly required support for modular components and Single Page App style interactions, which became exponentially harder to contrive with the SplunkJS API as we progressed along the product roadmap.
+</p>
 
+<figure class="half">
+    <img src="/content/projects/cybersam/images/pseudocode_before.png">
+    <img src="/content/projects/cybersam/images/pseudocode_after.png">
+    <figcaption>Building a custom visualization component before and after implementing React inside Splunk enterprise. The legacy SplunkJS framework puts developers in a situation where building interactions between modular components is extremly contrived.</figcaption>
+</figure>
+<p>
+    I sought to rectify the deeply rooted UX and technical limitations we were facing in our Splunk Enterprise app by cultivating a close relationship with Splunk’s Visualization Product Development team to explore alternative implementation strategies for our advanced use cases. Through this relationship, CyberSAM was given access to pre-release NPM packages enabling us to abandon the dashboard-based paradigm in favor of a React-driven single page app paradigm within Splunk Enterprise.<br><br>
+
+    Over the course of 2 years, the results of this partnership with Splunk Visualization Product Development were profoundly transformative. We introduced single page app functionality, Typescript development support, custom d3.js visualizations encapsulated in React components, 3D visualization capabilities, and many more previously unimplementable features into CyberSAM. I was invited to present our accomplishments with React at Splunk .conf 2020 and .conf2021 as part of the public release of Splunk’s React framework for Splunk Enterprise. Here’s the video of my industry partner keynote presentation at .conf 2021, in which I showcase the powerful new frontend of CyberSAM:
+    <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/637599075?h=b1afba6903&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="React + Splunk = :mindblown:"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    
+
+</p>
+
+<h4>Future Product Trajectory</h4>
+<p>
+    Our UI innovations have opened the doors to designing CyberSAM with a pure React app look-and-feel, all while capturing the performance benefits of running natively inside Splunk Enterprise without any API middleware. Our team is poised to take full advantage of this win-win situation, and we’re in the midst of an effort to build out a fully custom library of React components and layouts to guarantee future extensibility of our UI. This removes development bottlenecks of ML based anomaly detection features on the backend by ensuring we have a modular front end system that can present an optimal UX for leveraging these new detectors.<br><br>
+
+    
+    <figure class="half">
+        <img src="/content/projects/cybersam/images/customlayout.png">
+        <img src="/content/projects/cybersam/images/webpackdiagram2.png">
+        <figcaption>Addressing scalability of CyberSAM's UX and DX by using an extensible build pipeline with webpack and a custom layout API with React. </figcaption>
+
+    </figure>
+
+</p>
+
+<p>
+    Another effort I'm spearheading on CyberSAM is the evolution of the application build pipeline. Both the UI engineering team and the backend/ML engineering team have struggled with the complexity of the build process as our app scaled. By architecting a Node and Webpack based system to dynamically build both our UI and backend assets, we’ve been able to rapidly accelerate our iterative development process. This ongoing effort ensures our product can grow to serve the needs of all future missions at JPL.
+
+</p>
+<h3>Impact:</h3>
+
+<p>
+    The creation and development of CyberSAM has fundamentally transformed cybersecurity practices across JPL. CyberSAM is now the de facto cybersecurity situational awareness tool for every single mission operating out of JPL. The NASA Mission Directorate has greenlit deployments of CyberSAM across several other NASA centers outside JPL, citing its effectiveness at addressing issues of observability into mission cybersecurity posture that have plagued mission GDS’s for years. The extensibility of CyberSAM has created dozens of new cross functional business relationships between the CyberSAM team and mission operations as individual missions seek to implement more and more advanced customizations into their CyberSAM deployments. The CyberSAM team itself has grown from 3 to 20+ over the course of 3 years and delivered 64 releases to JPL clients.<br><br>
+    CyberSAM has impacted the larger industry of cybersecurity dashboard development as well. Our unique partnership with Splunk’s Product Development Team allowed us to build CyberSAM into a sophisticated software product with features that were previously inconceivable inside a Splunk Enterprise App. We’ve shared our innovations at Splunk .conf2020 and .conf2021 to teach Splunk Enterprise users across the world how React can supercharge the UX of their traditionally dashboard-based monitoring applications. 
+</p>
     <hr>
     <!-- <footer class="page-footer">
         <div class="inline-btn">

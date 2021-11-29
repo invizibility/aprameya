@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSpring, useTransition, animated, config } from "react-spring";
-import styled from "styled-components";
+import { styled, keyframes } from "styled-components";
 
 function Mount({ toMount }) {
   const [show, set] = useState(false);

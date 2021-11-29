@@ -1,0 +1,67 @@
+<div id="content" class="page-content" itemprop="articleBody">
+    <h3>Background:</h3>
+    <p>This is a project I created at the end of my studies at CMU to showcase my full-stack data viz development skills in the context of the overarching theme of my academic research -- interactive visualization methods for structural genomics.<br><br>
+        To see my thesis work on structural genomics, check out these links: <a href="/projects/3dgenome_pt1">Part 1</a>, <a href="/projects/3dgenome_pt2">Part 2</a>, <a href="/projects/3dgenome_pt3">Part 3</a>.<br><br>
+        In my thesis work, I covered how genomic sequences conform to complex 3 dimensional shapes in ways that determine their functionality--these conformations can be referred to as <a href=”https://en.wikipedia.org/wiki/Nucleic_acid_quaternary_structure”>quaternary structural organizations of nucleic acids</a>. However, there are also lower dimensional structural conformations that occur both in DNA and RNA that are of significant interest to genomics researchers.<br><br>
+        <a href="https://en.wikipedia.org/wiki/Nucleic_acid_secondary_structure">Secondary structures</a> are one of these types of lower-dimensional conformations induced by chemical bonds between the base pairs in a genomic sequence. Secondary structures in RNA and DNA are of growing interest to researchers as DNA-based computing and DNA nanotechnology mature as engineering modalities. Understanding how a given sequence will structurally conform given the base pairs present in the sequence falls squarely within the interest of scientists looking to incorporate structural information into larger ideas about the molecular mechanics of DNA and RNA.
+        <figure style="margin-left: 35%;">
+            <img style="max-height: max-content; max-width: max-content; "src="/content/projects/secondarystruct/images/secondarystruct_example.png">
+            <figcaption>A simple example of an RNA secondary structure (Source <a href="https://en.wikipedia.org/wiki/Nucleic_acid_secondary_structure">Wikipedia</a>)</figcaption>
+        </figure>  
+
+    </p>
+    <p>
+        I created this tool as a web based interface for understanding and tinkering with the 2D structural conformations of RNA given an RNA sequence. At the time of this project there were very few web based tools designed for visually exploring RNA secondary structure, so I sought to build something with more features and better UX.<br><br>
+    </p>
+    <h3>Process:</h3>
+    <p>
+        RNA secondary structures are typically represented with a syntax known as ‘Dot Bracket Notation’ (DBN). The respective DBN for a sequence of bases would be a string of dots and brackets the same length as the sequence, where the type and position of brackets indicate the types of bonds causing the structure to fold back on itself. I referred to <a href=”https://users.cs.duke.edu/~brd/Teaching/Previous/Bio/2000/New-Readings/rivas-eddy-jmb.pdf”> this paper</a> and <a href=”https://users.cs.duke.edu/~reif/courses/molcomplectures/DNA.Modeling/DotBracketNotationForRNA&DNAnanostructures/DotBracketNotationForRNA&DNAnanostructures.pdf”>this slide deck</a> from Duke’s computational biology department to thoroughly understand the nuances of DBN representation.<br><br>
+        An ideal RNA secondary structure viewer and editor would accept a sequence of base pairs with its corresponding DBN, visualize that sequence, and allow for manipulation of the structural representation as well as the sequence/DBN. My development process involved evaluating prior work, identifying pain points and missing features in the existing tools, then iterating on designs that would bring together an ideal featureset.<br><br>
+    </p>   
+    <h4>Evaluating Prior Work</h4>
+    <p>
+        The two main prior web based visualization tools I could find were <a href="https://github.com/benediktrauscher/drawrnajs">drawrnajs</a> and <a href="http://nupack.org/utilities/show/243464?token=mCSchaAPPo"> Nupack</a>. While both of these tools support visualization of a DBN sequence with editing capabilities, the UX leaves much to be desired.
+        <figure class="half">
+            <img src="/content/projects/secondarystruct/images/secondarystruct_drawrna.png">
+            <img src="/content/projects/secondarystruct/images/secondarystruct_nupack.png">
+            <figcaption>On the left is the drawrnajs UI, on the right is Nupack -- both have demo datasets loaded</figcaption>
+        </figure>
+        
+    </p>
+    <p>
+        After extensively testing these two tools, I came up with a list of issues I sought address to either improve the UX or add value through new interaction:
+        <ul>
+            <li>Config menus and color pickers should take up less space and be stripped down. Not every color would be visually useful and not every configuration option needs to be seen at the same time.</li>
+            <li>In both tools, the graph layout load time scales with the complexity of the sequence, and is quite long even with simple sequences. Alternative layout algorithms can be used to preserve the <a href="http://www.biomath.nyu.edu/biomath/oldrag/tutorials/graph_theory.html">planarity</a> of the structures presented while giving a more responsive UX.</li>
+            <li>Neither tool allows for bidirectional interactivity between the graph layout and the sequence. Giving users the ability to modify the structure both by adding links on the graph and by adjusting the DBN/sequence would elucidate the effects of local perturbations on the global structure.</li>
+            <li>Neither tool allows users to share their view with others. Shareable links would allow for better collaborative use.</li>
+        </ul>
+        
+    </p><p>With this featureset in mind I began development</p>
+    <h4>Iterating & Delivering the Product</h4>
+    <p>
+        I began by developing DBN parsing and validation functions to ensure that invalid DBNs or sequences would get rejected prior to visualization. Once I tested the sequence validation, I focused on how to generate a planar graph from the sequence without the intense computational overhead seen in the existing applications.
+        <figure class="half">
+            <img src="/content/projects/secondarystruct/images/secondarystruct_iteration1.png">
+            <img src="/content/projects/secondarystruct/images/secondarystruct_iteration2.png">
+            <figcaption>Using the d3.js force layout to deterministically converge a sequence into an optimally planar graph. The iteration on the left uses the v3 force engine while the right uses v4.</figcaption>
+        </figure>
+    </p>
+    <p>
+        I leveraged d3.js’s force layout package to render the secondary structure visualization for several reasons.Firstly, by showing the graph’s settling animation immediately upon sequence load, the user is given immediate visual feedback instead of having to wait in front of a blank screen while a planar graph is computed. This adds an element of responsive UX that is completely absent from the applications seen in prior work by decreasing the perceived load time of the optimally planar layout. Secondly, when tinkering with either the sequence or the structural representation, the user can ‘re-settle’ the force simulation to see if the sequence modifications result in a new structural equilibrium. This gives the user the ability to understand the effect of local structural perturbations on global structure--again, a feature entirely absent from other secondary structure viewers.<br><br>
+        Once the layout algorithm was solved, I worked on designing a compact configuration menu. I selected a batch of colorblind-safe color schemes from <a href="https://colorbrewer2.org/">ColorBrewer</a>, to allow for a diversity of color choices without compromising compactness and also ensuring it would be impossible for the user to pick a color scheme that makes base differentiation difficult. I selected a variety of monotype fonts for the user to choose from this config menu, ensuring the sequence and the DBN would always be the same pixel length. For the final component of the config menu, I built a link creation mode, where the user could link complementary base pairs with hydrogen bonds.<br><br>
+        Finally, I tied it all together by integrating levelDB on the server-side. I built a state stringification system that allows users to save their current structure graph + sequence state as a UUID keyed JSON, which is then serialized into a UUID keyed state string for storage in levelDB. A shareable link can be generated from this UUID, so collaborators can see the exact same structure using the UUID as a URL query string.<br><br>
+        Here is a demo of my viewer’s functionality. If you are interested in using the tool you can find it <a href="https://ancient-sea-58779.herokuapp.com/">here</a>. You can also find the source code <a href="https://github.com/invizibility/SecondaryStructureViewer">here</a>.
+    </p>
+    <div style="padding:55.47% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/224237116?h=b651ee621a&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="Secondary Structure Viewer Demo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    <h4>Future Product Trajectory</h4>
+    <p>
+        I have several ideas about how to further improve this tool. One low hanging fruit is introducing screen-size responsiveness to allow the visualization to work well on mobile display types. Another UX issue arises when visualizing sequences with more than 100 base pairs, which causes the sequence to overflow without scrolling in its bounding div. This could be solved by adding an <a href="https://github.com/wfxr/minimap.vim">IDE style minimap</a> of the sequence as an additional visualization to allow the sequence to scroll past its bounding div. Combining this function with the ability to zoom in and out of the graph would drastically increase the scale tolerance of the viewer.<br><br>
+        Another intersting arena for improvement is the algorithm for generating the planar graph. While the energy minimization algorithm behind d3's force directed graph layout has proven to be effective for many basic sequences, there is a <a href="https://www.sciencedirect.com/science/article/pii/S1110866512000047">variety</a> <a href="https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.54.9865&rep=rep1&type=pdf">of</a> <a href="https://www.semanticscholar.org/paper/Solving-the-Graph-Planarization-Problem-Using-an-Wang-Okazaki/5696a55aec3928ba0509ec5525a01fb68a5f4471">research</a> indicating that genetic algorithms could be substantially more performant at computing planar graph layouts. Introducing one a genetic algorithm into the layout engine would also allow for better performance when rendering large complex sequences.<br><br> 
+    </p>
+    <h3>Impact:</h3>
+    <p>
+        As mentioned in my thesis work and earlier in this post, tools for visualizing the structural characteristics of genetic information will only become more and more important as the field of computational genomics grows exponentially. Creating new UX standards for these tools allows scientists to focus on developing knowledge from all the new available data instead of being hamstrung by ineffective visual grammar.<br><br>
+    </p>
+</div>
+ 

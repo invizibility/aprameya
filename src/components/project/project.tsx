@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, Suspense, useMemo } from "react";
 import { useSpring, animated } from "react-spring";
 import styled from "styled-components";
+import FontStyles from "../../components/FontStyles";
 import MEDIA from "../../helpers/mediaTemplates";
 //import blah from "../../../content/projects/3dgenome/images/3d";
 // import Header from "../header/header";
@@ -19,19 +20,38 @@ const Subtitle = ({
 }: ProjectData["subtitleData"]): JSX.Element => {
   return (
     <div>
-      <h4>{date}</h4>
-      <h4>{skills}</h4>
+      <h4 style={{ fontFamily: "Fann Grotesque Thin" }}>{date}</h4>
+      <h4 style={{ fontFamily: "Fann Grotesque Thin" }}>{skills}</h4>
     </div>
   );
 };
 
 const ProjectBodyStyled = styled.div`
+  p {
+    font-family: "Georgia Pro Regular";
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Fann Grotesque SemiBold";
+  }
+
+  .question {
+    font-family: "Fann Grotesque SemiBold Italic";
+  }
+  .question span {
+    text-decoration: underline;
+  }
   img {
     width: 100%;
   }
 
   .half > img {
     width: 49%;
+    height: auto;
     ${MEDIA.TABLET`
     width: 100%;
   `}
@@ -45,11 +65,33 @@ const ProjectBodyStyled = styled.div`
   }
 
   figure figcaption {
+    font-family: "Fann Grotesque Thin Italic";
+  }
+
+  li {
+    font-family: "Georgia Pro Regular";
+
+    margin-bottom: 0.5rem;
+  }
+
+  blockquote {
+    padding-left: 1.618em;
+    padding-right: 1.618em;
+    border-left: 6px solid #3498db;
+  }
+  blockquote p {
+    font-family: "Fann Grotesque Regular", "Segoe UI", Arial, sans-serif;
+
+    font-size: 1.1rem;
+    line-height: 1;
+    margin-bottom: 24 px;
+    margin-bottom: 1.5 rem;
   }
 `;
 
 const HeaderImageStyled = styled.img`
   width: 100%;
+  border-radius: 10px;
 `;
 
 const ProjectBody = ({ bodyHtml }): JSX.Element => {
@@ -109,7 +151,9 @@ const Project = ({
       <HeaderImageStyled
         src={`/content/projects/${slug}/images/${headerImage}`}
       />
-      <h2>{title}</h2>
+      <h2 style={{ fontFamily: "Fann Grotesque SemiBold", fontSize: "2em" }}>
+        {title}
+      </h2>
       <Subtitle {...subtitleData} />
       <Suspense fallback={<>loading...</>}>
         <ProjectBody bodyHtml={bodyContent} />

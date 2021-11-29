@@ -37,16 +37,22 @@ export default function forceGraph(
         })
     )
     .alphaTarget(0)
-    .alphaDecay(0.005);
+    .alphaDecay(0.003);
 
   var transform = d3.zoomIdentity;
 
   console.log(data);
+  const colors = d3.scaleSequential(d3.interpolatePiYG);
 
   const radiusFixedData = {
     nodes: [
-      ...data.nodes.map((d, i) => {
-        return { ...d, radius: Math.floor(Math.random() * 5) };
+      ...data.nodes.map((d, i, x) => {
+        return {
+          ...d,
+          radius: Math.floor(Math.random() * 5),
+          //radius: 1,
+          color: colors[Math.floor(Math.random() * 8)],
+        };
       }),
     ],
     edges: data.edges,
@@ -62,21 +68,21 @@ export default function forceGraph(
       simulationUpdate();
     }
 
-    d3.select(graphCanvas)
-      .call(
-        d3
-          .drag()
-          .subject(dragsubject)
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended)
-      )
-      .call(
-        d3
-          .zoom()
-          .scaleExtent([1 / 10, 8])
-          .on("zoom", zoomed)
-      );
+    // d3.select(graphCanvas)
+    //   .call(
+    //     d3
+    //       .drag()
+    //       .subject(dragsubject)
+    //       .on("start", dragstarted)
+    //       .on("drag", dragged)
+    //       .on("end", dragended)
+    //   )
+    //   .call(
+    //     d3
+    //       .zoom()
+    //       .scaleExtent([1 / 10, 8])
+    //       .on("zoom", zoomed)
+    //   );
 
     function dragsubject() {
       var i,
@@ -118,6 +124,7 @@ export default function forceGraph(
     simulation.nodes(tempData.nodes).on("tick", simulationUpdate);
 
     simulation.force("link").links(tempData.edges);
+
     //simulation.force("charge", d3.forceManyBody().strength(-50));
 
     function render() {}

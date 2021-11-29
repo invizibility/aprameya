@@ -1,64 +1,124 @@
 {
   "projects": [
     {
-      "title": "EuropaViz",
+      "title": "V.A.S.T.",
       "subtitleData": {
-        "date": "2021",
-        "skills": "d3, React, python"
+        "date": "2021-Present",
+        "skills": "Figma, Adobe Creative Suite, d3.js, three.js, Styled Components, React, React Testing Library, Python"
       },
-      "headerImage": "3dgenome_header.png",
-      "slug": "europaviz",
-      "content": "3dgenome.html"
+      "headerImage": "vast_header.png",
+      "slug": "vast",
+      "content": "vast.html"
     },
     {
       "title": "CyberSAM",
       "subtitleData": {
-        "date": "2018-2021",
-        "skills": "d3, React, Splunk"
+        "date": "2018-Present",
+        "skills": "Figma, Adobe Creative Suite, d3.js, node.js, three.js, Styled Components, Babel, Webpack, React, React Testing Library, Typescript, Splunk Enterprise, Python, Docker, bash"
       },
-      "headerImage": "3dgenome_header.png",
+      "headerImage": "cybersam_header1.png",
       "slug": "cybersam",
       "content": "cybersam.html"
     },
     {
-      "title": "3D Genome",
+      "title": "Visualizing RNA Secondary Structures",
+      "subtitleData": {
+        "date": "2017",
+        "skills": "d3.js, node.js + express, levelDB"
+      },
+      "headerImage": "secondarystruct_header.png",
+      "slug": "secondarystruct",
+      "content": "secondarystruct.html"
+    },
+    {
+      "title": "Visualizing the 3D Genome Pt. 3",
+      "subtitleData": {
+        "date": "2017",
+        "skills": "Paper Prototyping, three.js, React"
+      },
+      "headerImage": "3dgenome_pt3_header.png",
+      "slug": "3dgenome_pt3",
+      "content": "3dgenome_pt3.html"
+    },
+    {
+      "title": "Visualizing the 3D Genome Pt. 2",
       "subtitleData": {
         "date": "2016",
-        "skills": "d3"
+        "skills": "Adobe Creative Suite, d3.js, node.js, Cytoscape, R"
       },
-      "headerImage": "3dgenome_header.png",
-      "slug": "3dgenome",
-      "content": "3dgenome.html"
+      "headerImage": "3dgenome_pt2_header.png",
+      "slug": "3dgenome_pt2",
+      "content": "3dgenome_pt2.html"
+    },
+    {
+      "title": "Visualizing the 3D Genome Pt. 1",
+      "subtitleData": {
+        "date": "2016",
+        "skills": "d3.js, three.js, node.js + express"
+      },
+      "headerImage": "3dgenome_pt1_header.png",
+      "slug": "3dgenome_pt1",
+      "content": "3dgenome_pt1.html"
+    },
+    {
+      "title": "Visualizing Geophysical Fluids",
+      "subtitleData": {
+        "date": "2016",
+        "skills": "Paper Prototyping, openFrameworks"
+      },
+      "headerImage": "geophysfluid_header.png",
+      "slug": "geophysfluid",
+      "content": "geophysfluid.html"
     },
     {
       "title": "Soylent Saviour",
       "subtitleData": {
         "date": "2016",
-        "skills": "d3"
+        "skills": "d3.js, node.js, maptastic.js, ArcGIS, Makeblock X-Y Plotter, Rhino 3D, Makerbot, CNC Router, PETG Vacuum Former"
       },
-      "headerImage": "3dgenome_header.png",
+      "headerImage": "soylentsaviour_header.png",
       "slug": "soylentsaviour",
       "content": "3dgenome.html"
     },
     {
-      "title": "Understanding Hyperspectral Microscopy",
+      "title": "Sonifying Hyperspectral Microscopy",
       "subtitleData": {
         "date": "2016",
         "skills": "d3"
       },
       "headerImage": "hyperspectralmicro_header.png",
       "slug": "hyperspectralmicro",
-      "content": "3dgenome.html"
+      "content": "hyperspectralmicro.html"
     },
     {
-      "title": "Visualizing the Brain",
+      "title": "Visualizing Mindfulness",
       "subtitleData": {
         "date": "2016",
-        "skills": "d3"
+        "skills": "Freesurfer, three.js, XTK.js"
+      },
+      "headerImage": "brainviz_header.png",
+      "slug": "brainviz",
+      "content": "brainviz.html"
+    },
+    {
+      "title": "EEG Visualization Composer",
+      "subtitleData": {
+        "date": "2014",
+        "skills": "R, Processing, Java, GLSL"
+      },
+      "headerImage": "eegviz_header.png",
+      "slug": "eegviz",
+      "content": "eegviz.html"
+    },
+    {
+      "title": "Animating Advanced Optical Methods",
+      "subtitleData": {
+        "date": "2011",
+        "skills": "Paper Prototyping, Adobe Creative Suite"
       },
       "headerImage": "3dgenome/images/3dgenome_header.png",
-      "slug": "brainviz",
-      "content": "3dgenome.html"
+      "slug": "microanimations",
+      "content": "microanimations.html"
     }
   ]
 }

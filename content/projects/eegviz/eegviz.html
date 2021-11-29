@@ -1,0 +1,29 @@
+<div id="content" class="page-content" itemprop="articleBody">
+    <h3>Background:</h3>
+    <p>
+        I worked as a Creative Technologist Intern at the data visualization studio Pitch Interactive during my final year of academic studies at UW Madison. My work with Pitch consisted of developing interactive visualization prototypes for a selection of neuroscience-adjacent projects that the studio was involved in. <br><br>
+        One of the main projects I worked on at Pitch was development of an artistic visualization framework for EEG data. Pitch had developed a relationship with Capacitor--a modern dance troupe interested in utilizing light projections of EEG data visualization in an upcoming performance. The dancers underwent EEG scans at the local UCSF facility to generate a corpus of data to be used for this purpose. <br><br>
+        Over the course of several weeks, I created an extensible Java application that could accept arbitrary time dimensional EEG input streams and output simple geometry-based visuals with GLSL shader effects. <br><br>
+    </p>
+    <h3>Process:</h3>
+    <p>
+        I cleaned and normalized the raw EEG data in R, removing erroneous outlier values and standardizing the activation range across each of the electrodes used in the scan.<br><br>
+        Once the data was clean I began building the components of the application. In order to allow for smooth, “Youtube-style” scrubbing interaction with the electrode time series, I created a custom fork of Till Nagel’s “Animated Time Range Slider for Processing” that supports nanosecond durations and non-range time increments.<br><br>
+        <figure style="width: 60%; display: block; margin-left: auto; margin-right: auto;" >
+            <img src="/content/projects/eegviz/images/eegviz_timeslider.png">
+            <figcaption>My customized version of Till Nagel's Time Range Slider</figcaption>
+        </figure>
+    </p>
+    <p>
+        I then built out the rest of the application which included a basic UI for mapping each electrode activation time series to a polygon with visual effects.<br><br>
+        <div style="padding:62.94% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/111474886?h=402502a68e&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="eegdemo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    </p>
+    <p>
+        Next, I extended the feature set to include a demo mode which hides the UI to allow for full-screen visualization suitable for projection. Other features I also incorporated included GLSL shader based effects and alternate geometry modes--the effect shown here generates bursts of particles mapped to an average level of activation across all electrodes and guides these particles along a path defined by Perlin noise. <br><br>
+        <div style="padding:58.44% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/111249142?h=0e5edf1787&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="shaderdemo"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    </p>
+    <h3>Impact:</h3>
+    <p>
+        By making the shaders and geometry rendering capabilities as modular functions, this application enabled other members of the studio to rapidly test new ideas for visuals with the same EEG data. This application was then used after my internship ended to iterate versions of the visual projections that were eventually used in Capacitor’s “Synaptic Motion” performance.<br><br>
+    </p>
+</div>

@@ -1,0 +1,32 @@
+<div id="content" class="page-content" itemprop="articleBody">
+    <h3>Background:</h3>
+    <p>
+        During the Summer 2016 NASA JPL + Caltech Data Visualization Internship, I worked with fellow intern Matt Edwards to help the Mark Simons Lab explore cutting edge research questions about interferometry based models of glacier flow. In order to develop better models for simulating glacier flow and to improve data collection techniques, researchers in the Simons lab needed an integrated software product for visualizing interferometry data input into the flow model, and the output of that model. <br><br>
+        Glacier flow models can have a multitude of components operating on vastly different time scales, necessitating a visualization tool that would enable a user to interrogate the model across several temporal and spatial orders of magnitude. At the end of our 10 week program, Matt and I came up with an interactive visualization application and an extensible design language for this challenging data space.<br><br>
+    </p>
+    <h3>Process:</h3>
+    <p>
+        Currently no interactive application exists for visualizing geophysical fluids with multiple geospatial and temporal layers. We attacked the problem by conducting extensive user interviews with Simons lab researchers to identify interaction designs that they found most useful for understanding and debugging their glacier flow models. <br>
+    </p>
+    <h4>User Research & Iteration</h4>
+    <p>
+        I created a UX research interview protocol focused around figures in certain publications that Mark and his colleagues had identified as useful visual vocabulary for articulating concepts they wanted to further dive into with this application. These publications utilized a variety of visual media figures such as 2d graphs, maps, and animations that conveyed complex patterns in the interferometry data modeling process.<br><br>
+        After documenting Mark and his colleagues’ desired use cases, I created a series of paper prototypes which composed elements of these figures into a UI. These prototype UI’s were iteratively validated against the use cases in subsequent interviews until we narrowed down an effective visual vocabulary with the right kinds of interaction designs to facilitate layered interrogation of the glacier flow models <br><br>
+        <figure>
+            <figcaption>Paper prototypes demonstrating how multiple interaction designs could be composed into a singular application for visualizing models of glacier flow</figcaption>
+        </figure>
+    </p>
+    <h4>Delivering the Product</h4>
+    <p>
+        After the user research phase pinned down the necessary components and interactions, I worked with Matt to build out these functionalities in openFrameworks. Our application supported both 2D and 3D visualizations of terrain maps, alongside a variety of overlays and charts designed to facilitate interrogation of interesting features both in the imaging data and in the flow model created from that data.<br><br>
+        <figure>
+            <figcaption>Providing 2D and 3D visualization capabilities alongside features to inspect details of modeled data vs actual data across the topology of interest</figcaption>
+        </figure>
+    </p>
+    <h3>Impact:</h3>
+    <p>
+        As model engineering techniques across the sciences explode in complexity over the past decade, tools for model interpretability that allow researchers to peek under the hood of these models are invaluable for understanding blind spots and opportunities for improvement. With this tool we were able to provide Simons’ lab researchers an unprecedented perspective on their modeling pipeline.<br><br>
+        Furthermore, having an interactive environment to dive into the extremely dense interferometry data in layers allowed researchers to analyze large corpuses of data at once without being overwhelmed by the sheer volume of images. Even in the prototyping phases we were able to reveal to Mark and his colleagues features of their imaging data that were previously inaccessible.<br><br>
+        Allowing scientists to create hypotheses about their problem space in a way that was previously impossible is one the ultimate criteria of success for a visualization software product. Our new visualization tool transformed the way Simons Lab researchers think about model engineering, which in turn supercharges the Lab’s ability to generate knowledge about how and why glaciers behave the way they do. <br><br>
+    </p>
+</div>

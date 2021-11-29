@@ -1,0 +1,94 @@
+<div id="content" class="page-content" itemprop="articleBody">
+<h3>Background:</h3>
+
+    <p>Scientists have known for quite some time that the genome actually does not look like a long horizontal line inside the cell; it actually looks like a tightly entangled noodle. The 3 dimensional shape of DNA inside a cell consists of entanglements that occur across several orders of magnitude. The following graphic from <a href="https://www.ncbi.nlm.nih.gov/pubmed/26226004">Ea et. al 2015</a> shows the way 2 meters of DNA sequence are packaged into 5 microns of spherically confined space in the center of the nucleus.<br><br>
+    
+    <figure><img style="width: 60%; display: block; margin-left: auto; margin-right: auto;"src="/content/projects/3dgenome/images/3dgenome_conformation.png"></figure>
+    <p>Understanding the unique circumstances under which a sequence will fold in different ways is critical to understanding how cells can exhibit a diverse array of behaviors driven by the same sequence, and how defects in genome structure can cause cancer and many other disease. Until very recently, scientists could only infer about this 3d structure, not measure it. The recent increased availability of structural genomic sequencing technologies such as <a href="https://en.wikipedia.org/wiki/Chromosome_conformation_capture">Hi-C</a> and <a href="https://en.wikipedia.org/wiki/ChIP_sequencing">CHiP-seq</a> have many genomics researchers interested in studying relationships between genomic structure and function. However the development of visualization tools to analyze these 3d structures is far behind the experimental methods used to generate them. This has resulted in a vast quantity of new data that is difficult to mine for interesting biological hypotheses.<br><br>
+    This work is the first of a 3-part thesis project I started as an intern in the NASA JPL 2016 Data Visualization Internship Program which morphed into a multi-lab collaborative design study in visualization methods for structural genomics. For each of the 3 research questions I worked on, I conducted extensive user research into the challenges each lab faced in their work with structural genomic data, created a variety of prototype solutions, and eventually delivered javascript based tools to accelerate the labs’ scientific objectives. <br><br>
+    Parts <a href="/projects/3dgenome_pt2">2</a> and <a href="/projects/3dgenome_pt3">3</a> can be seen at the links provided.<br><br> 
+    
+    Part 1 consists of my collaboration with fellow intern Peter Polack to devise workflows assisting the Guttman Lab for lncRNA biology's exploration of complex datasets describing the 3 dimensional conformation of genomic data inside cells, so as to identify potentially interesting patterns. Our work focused around the following research question:</p>
+
+    <h4 class="question"><span>Question 1:</span> There are no tools designed specifically for visually exploring 3D genomic structures. Given a 3d model of a genome reconstructed from sequencing data, how can we identify interesting features in this structure?</h4>
+    
+    <p>Peter and I created an interactive web based prototype for visualizing and juxtaposing novel 3d genomic structure datasets with widely available genomic function datasets to help Guttman lab researchers more effectively explore this question<br><br></p>
+    
+<h3>Process:</h3>
+
+
+
+
+<h4>User Research:</h4>
+
+<p> 
+
+   
+    Evaluating the toolset Guttman Lab researchers were using to analyze 3d genomic structures revealed a glaring lack of tools designed specifically for understanding structural genomics. Researchers were subsisting by shoehorning 3d genomics data into tools designed for molecular visualization, such as PyMol.</p> 
+
+
+
+<figure class="half">
+    <img src="/content/projects/3dgenome/images/pymol_viz.png">
+    <img src="/content/projects/3dgenome/images/pymol_genomeviz.png">	
+    <figcaption>PyMol is a very effective tool for visualizing proteins like the one seen on the left. However as seen on the right, PyMol rapidly loses utility for genome-scale visualization. The types of tagging and zooming features that apply to protein structures aren't relavent idioms in genomic structures</figcaption>
+</figure>
+
+<p>This type of shoehorning placed severe constraints on the level of insight researchers were able to garner from visualizing their simulated structures. While PyMol is an excellent tool for visualizing smaller protein structures, it simply doesn’t have the feature set to allow users to grapple with the sheer orders of magnitude size difference between a typical protein and an entire genome. <br><br>
+    
+    Peter and I extensively interviewed different Guttman Lab researchers to identify roadblocks in PyMol-based workflows and created a conceptual model for an interface that would provide an intuitive experience for exploring interesting patterns in 3D structural genomic data. We also used these interview opportunities to explore various types of visual media our researcher collaborators found effective for describing and making obvious particular structural characteristics involved in their hypothesis testing processes. These discussions allowed us to develop novel interaction designs for our visualization that were absent in current toolsets, but intuitive to our researchers and consistent with the visual grammar they employ.</p>
+
+</p>
+
+<h4>Iterative Prototyping:</h4>
+
+<p>It was clear a new type of UI designed for exploration of 3d genomic structures would blow the doors open on the types of hypotheses Guttman Lab researchers could ideate and test with the data they had available. The range of design materials Peter and I utilized in our iterative prototyping sessions with the Guttman Lab researchers included paper storyboards, whiteboard sessions, 2d vector illustrated storyboards, and interactive javascript visualizations.<br><br>
+    Through this variety of design media, we honed in on several interaction designs that would add significant value over the current patchwork PyMol based solution. One of such features was the ability to explore the various scales of genomic data through a directed acyclic graph (DAG) representation. Our UX research revealed DAGs have been used to great effect statically in publication figures--through prototyping we discovered interactive DAG’s could provide a variety of powerful exploratory features for structural genomics researchers.
+</p>
+
+<figure class="half">
+    <img src="/content/projects/3dgenome/images/3dgenome-900-450-1.png">
+    <img src="/content/projects/3dgenome/images/3dgenome-900-450-2.png">	
+    <figcaption>Directed graphs are a visual form our researchers found useful for static representation of genome structure complexity. We tested the viablity of these graphs as a means of interacting with and exploring structures.</figcaption>
+</figure>
+
+
+<h4>Delivering the Product</h4>
+<p>Our final delivery for the Guttman Lab was an interface that supported a variety of interactions with genomic structure data that were unavailable in any other software product. We leveraged DAG representation in several key ways, one of which was using DAG’s to zoom into and compare multiple structural datasets to see where common topological features occurred across several orders of magnitude.<br><br>
+<figure>
+    <img src = "/content/projects/3dgenome/images/graphviz_genome.png">
+    <figcaption>Zooming into a singular chromosome on multiple genomic structures and interactively comparing topologies was unheard of prior to our interface. This view catalyzed many important discussions about differences between structure datasets.</figcaption>
+</figure>
+</p>
+<p>
+    We built several more powerful features on the concept of using a 2D DAG to explore a 3D structural visualization, all of which benefited from the inherent ease of use DAGs provide on a 2D computer screen UI when interacting with a complex 3D structure that can self-occlude nuanced structures in a 2D projection. Another one of these features was coloring different parts of the genomic structure with maps generated by 1D/2D annotation. This allowed users to theorize about the ‘why’ behind certain topologies observed in the genomic structure.
+
+    <figure style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+        <img src = "/content/projects/3dgenome/images/2d3d_genomeviz.png">
+        <figcaption>Mapping color to chromosome number to understand structural confirmation of specific subsets of chromosomes in a given genome. Physical proximity of these chromosomes could indicate strong interactions between genes present in these chromosomes.</figcaption>
+    </figure>
+</p>
+
+
+<h3>Impact:</h3>
+<p>
+
+    In <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.472.8855&rep=rep1&type=pdf">Data Analysis and Visualization in Genomics and Proteomics</a> by Francisco Azuaje and Joaquín Dopazo, the authors state make the following observation about the role of visualization in advancing genomics:
+    <blockquote>
+        <p>
+            The analysis (including discovery) and visualization of relevant biological data
+patterns have traditionally been approached as independent computational problems.
+Until now biological data analysis has placed emphasis on the automation aspects of
+tools, and relatively little attention has been given to the integration and visualization
+of information and models, probably due to the relative simplicity of pre-genomic
+data. However, in the post-genomic era it is very convenient that these tasks
+complement each other in order to achieve higher integration and understanding
+levels.
+            </p>
+    </blockquote>
+    <p>
+    Our innovative visualization interface demonstrated to us and the Guttman Lab researchers how powerfully a novel visual grammar can catalyze "integration and understanding" of a novel genomnic data space. By leveraging interactive DAGs and 3D visualization techniques, we were able to make previously opaque structural conformation datasets accessible for hypothesis generation. This gave the Guttman Lab a powerful new asset in addressing research questions related to structure-function relationships.<br><br> 
+    Furthermore, creating a UI that spurred hypothesis generation between structure and function of genomic sequences opened an entirely new research question of how structure and function data could be visualized together en masse to think about which kinds of genomic topologies facilitate which kinds of genomic functions. I tackled this new research question in <a href="/projects/3dgenome_pt2">Part 2</a> of my thesis.<br><br></p>
+</p>
+
+</div>

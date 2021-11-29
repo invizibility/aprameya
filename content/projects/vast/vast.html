@@ -1,0 +1,98 @@
+<div id="content" class="page-content" itemprop="articleBody">
+    <h3>Background:</h3>
+    <p>
+        Europa is a moon of Jupiter that is 390 Million miles away from Earth with an icy surface covering vast bodies of liquid water. Scientists suspect these below-surface Europan bodies of water are some of the highest probability regions in the solar system for containing signs of extraterrestrial life.<br><br>
+        NASA is sending a JPL designed spacecraft to land on the icy surface of Europa in 2038 called the Europa Lander. Lander will drill into the ice, collect multiple samples from below the surface, analyze these samples for traces of life, and beam the most important subset of information back to earth for scientists to analyze further. <br><br>
+        <figure style="margin-left: 15vw; width: 60%;">
+            <img src="/content/projects/vast/images/vast_landerschematic.png">
+            <figcaption>Tentative design of the Europa Lander Spacecraft (Source <a href="https://europa.nasa.gov/resources/58/europa-lander-study-2016-report/">2016 Europa Lander Study Report</a>)</figcaption>
+        </figure>
+
+    </p>
+    <p>
+        Because of Europa’s 48 hour night time and enormous distance from Earth, direct communication with the Europa Lander will be very scarce, meaning all of the mission’s science objectives will have to be executed autonomously by the spacecraft, with limited human oversight. This unprecedented dependence on instrument autonomy exposes Europa Lander scientists to several fundamental challenges of autonomous science planning. <br><br>
+        Many of these challenges center around deciding whether, and if so, when and how to intervene into the plan derived by the spacecraft’s onboard autonomous system as it seeks to optimize for achievement of scientific objectives. Understanding what autonomous spacecraft perceive as they navigate extraterrestrial environments, and how autonomous behaviors are informed through this perception, is essential to developing robotic spacecraft that can successfully conduct science on other planets with limited human intervention.<br><br>
+        I created VAST (Visualization for Autonomous Science Toolkit) as a new software paradigm to help the Europa Lander team efficiently reason about human interventions into execution strategies derived by autonomous systems. VAST is a React-based modular framework that enables visualization of an autonomous spacecraft’s perceived environment and intended actions, tuning of the parameters that constrain the autonomy, and analysis of the results of that tuning in a near real-time closed loop. <br><br>
+    </p>
+    <h3>Process:</h3>
+    <h4>User Research</h4>
+    <p>
+        Europa Lander scientists want to implement a “Ground In The Loop” architecture that inserts human oversight and course correction capabilities into the spacecraft’s decision making process as insurance against certain edge cases where the onboard autonomy might make a suboptimal decision despite its best intentions. These edge cases include errors like missing an opportunity to take additional experimental data of a particularly noteworthy sample, or failing to adequately prioritize noteworthy data to be sent back to earth as soon as possible.<br><br>
+        I interviewed a variety of engineers, operators, and scientists across other missions that implemented some degree of onboard spacecraft autonomy, including Mars Perseverance, to learn how others have dealt with the need to either adjust the goals of a spacecraft or the means to achieving those goals while mid-mission. These interviews revealed 3 primary challenges that missions grapple with when wanting to integrate Ground In The Loop control capabilities into an autonomous mission system architecture: 
+
+        <ol>
+            <li>Windows of opportunity for operators on Earth to intervene into autonomous decision making are narrow, and they only come about during specific predefined Uplink intervals during which the spacecraft can receive instructions from Earth. These windows can be especially narrow when dealing with a target as far away as Europa. Deciding to intervene or not requires complex consensus building and cost benefit analysis involving many Science, Operational, and Engineering teams, and these decisions need to be made quickly. </li>
+            <li>The current state of software used to build the aforementioned consensus is a highly fragmented ecosystem of analytical tools that are disconnected from the algorithms used to simulate spacecraft activity. This disconnect between simulation and analysis of spacecraft activity introduces many inefficiencies into both planning and operational phases of autonomous missions.</li>
+            <li>There is little to no reusability of these analytical tools between different autonomous missions. Despite there being many similarities in the analytical process across missions, the lack of modularity in science planning software design means that new autonomous missions are often on the hook for reinventing the wheel by building their own analytical tools from scratch.</li>
+        </ol>
+
+        <figure class="half">
+            <img src="/content/projects/vast/images/vast_scheduler_current_better.png">
+            <img src="/content/projects/vast/images/vast_fragmentation.png">
+            <figcaption>The currently used software architecture for autonomous science planning suffers from a variety of problems stemming from inefficiencies in feedback loops and fragmentation of visualization components</figcaption>
+        </figure>
+    </p>
+    <p>The Europa Lander team was grappling not only with the inherent complexity of autonomous science planning, but also deeply rooted inefficiencies in the software tools used to manage this complexity. I sought to create a visualization product that could be useful for the Europa Lander team and other autonomous missions through emphasis on modularity, extensibility, and feedback loops between the simulation and analysis phases of autonomous science planning</p>
+    <h4>Delivering the Product</h4>
+    <p>
+        I drew inspiration from modular visualization tools used in the autonomous vehicle industry when building VAST. Products like <a href="https://avs.auto/#/">Uber AVS</a> and <a href="https://foxglove.dev/">Foxglove</a> have been immensely valuable for understanding and engineering the behavior of autonomous systems--I aimed to create a product that could deliver this kind of value for autonomous space missions.<br><br>
+        Here is an early stage demo I made for Europa science planners demonstrating how to use VAST to think about resource costs of intervening into Europa Lander's autonomously derived data downlink priority:
+        <div style="padding:60.42% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/651053683?h=cf377adbe1&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="recording attempt 1"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+    </p>
+    <p>
+        VAST is built on React and comes with a collection of custom d3.js visualizations wrapped in React components that can be composed into a variety of interactive views. Data is fed into VAST from a discrete event simulation, which models the spacecraft’s activity scheduling algorithm, through a rudimentary API.<br><br>
+        Europa Lander engineers and scientists have used VAST views during the early planning phase to:
+        <ul>
+            <li>Visualize the simulated activity execution plan generated by a model of the spacecraft autonomy</li>
+            <li>Visualize resource usage charts with time dimensional confidence intervals also generated by the autonomy model</li>
+            <li>Interact with components that can tune parameters of the model</li>
+            <li>Visualize resource implications of tuning in real time</li>
+        </ul>
+        <figure>
+            <img src="/content/projects/vast/images/vast_new_scheduler_workflow.png">
+            <figcaption>VAST is a more efficient and cost effective model of autonomous science planning that leverages modularity and closed feedback loops between data generation and visualization components</figcaption>
+        </figure>
+    </p>
+    <p>
+        The success of VAST during early planning phases of prototyping Europa Lander’s onboard autonomy has created a demand for further development of more modules, and drawn the attention of other autonomous missions grappling with similar challenges in autonomous science planning. 
+    </p>
+    <h4>Future Product Trajectory</h4>
+    <p>Currently I’m working to extend VAST’s functionality to support increased demand from other autonomous missions. Features currently in development include:
+        <ul>
+            <li>3D environmental visualization components with sensor data overlays and charts powered by ROS data to give context for sample selection decisions</li>
+            <li>Integration with other 3D visualization components developed by other autonomous robotics software teams at JPL</li>
+            <li>More robust bidirectional API integration to allow for higher fidelity feedback data from the scheduling engine</li>
+            <li>Support for more sophisticated autonomous scheduling architectures (such as TaskNets)</li>
+        </ul>
+        <figure class="half">
+            <img src="/content/projects/vast/images/vast_sampling.png">
+            <img src="/content/projects/vast/images/vast_metrics.png">
+            <figcaption>New components and layouts currently in development for VAST, including 3D environmental data integration and trending metrics.</figcaption>
+        </figure>
+    </p>
+    <p>With the development of this next generation of features underway, VAST is uniquely positioned to become the de facto tool suite for iterative design and operation of autonomous spacecraft systems at JPL.
+    </p>
+    <h3>Impact:</h3>
+    <p>
+        Even in the nascent stages of its product lifecycle, VAST has already delivered immense value to scientists, engineers, and operators working on autonomous missions across JPL. By replacing analytical processes in human-autonomy teaming that require use of multiple fragmented tools with a closed loop workflow leveraging modular tooling, VAST has allowed mission personnel to drastically reduce friction in the iterative design process. <br><br>
+        Connecting simulation and analysis in a closed loop allowed Europa Lander personnel to ideate and compare multiple intervention strategies in parallel instead of serially, leading to immense time savings. Furthermore, VAST’s modular architecture allowed integration of many types of data into this analytical process that previously were siloed across dozens of legacy tools, such as environmental sensor data, data products related to science objectives, and data related to schedule execution. As a result, Europa Lander teams were not only able to iterate more efficiently, but also more effectively given a wealth of additional context.<br><br>
+        As VAST is becoming integrated into other autonomous missions, we’re starting to see more of its value proposition realized. Smaller autonomous missions in early planning phases that don’t have budgetary resources to reinvent analytical tools are able to use VAST to conduct iterative design work that would have previously been entirely unaffordable. Cross functional collaborative work with robotic rover-based missions has revealed VAST’s utility not only for planning autonomous missions but for real time operation, in which decisions about autonomy intervention must be made in a matter of hours. The introduction of design paradigms from the autonomous vehicle industry has transformed the way JPL can design and operate autonomous spacecraft, and I’m profoundly excited to see how VAST continues to catalyze the shift towards usage of more autonomous instrumentation in future space missions.<br><br>
+
+    </p>
+    
+    <hr>
+    <!-- <footer class="page-footer">
+        <div class="inline-btn">
+<a class="btn-social twitter" href="https://twitter.com/intent/tweet?text=3D%20Genome&amp;url=https://invizibility.github.io/work/3D-Genome/&amp;via=invizibility" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i> Share on Twitter</a>
+<a class="btn-social facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://invizibility.github.io/work/3D-Genome/" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i> Share on Facebook</a>
+<a class="btn-social google-plus" href="https://plus.google.com/share?url=https://invizibility.github.io/work/3D-Genome/" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i> Share on Google+</a>
+</div>
+/.share-this
+
+        
+    </footer> -->
+    <!-- /.footer -->
+    <aside>
+        
+    </aside>
+</div>

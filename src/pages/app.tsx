@@ -6,6 +6,7 @@ import DataVizBackground from "../components/datavizbackground/datavizbackground
 import Grid from "../components/grid/grid";
 import Project from "../components/project/project";
 import FontStyles from "../components/FontStyles";
+import { styled, keyframes } from "styled-components";
 import {
   BrowserRouter as Router,
   Switch,
@@ -25,21 +26,30 @@ import {
 import META from "../../content/home/homepage.json";
 import PROJECTS from "../../content/projects/projects.json";
 
+const colorChange = keyframes`
+  0% { color: red; }
+  50% { color: blue; }
+  100% { color: red; }
+`;
+
 const Intro = () => (
   <>
-    <DataVizBackground></DataVizBackground>
+    {/* <DataVizBackground></DataVizBackground> */}
     <HeaderInfo
       content={
         <p
           style={{
-            fontFamily: "Nib Pro Regular",
-            backdropFilter: "blur(2.5px)",
+            fontFamily: "Georgia Pro Regular",
+            //backdropFilter: "blur(3px)",
             padding: "5px",
             borderRadius: "5px",
+            backgroundColor: "rgba(255,255,255,0.6)",
           }}
         >
           I am a product designer and technologist specializing in{" "}
-          <b>data visualization. </b>
+          <span style={{ fontFamily: "Georgia Pro Bold" }}>
+            data visualization.{" "}
+          </span>
           Currently I work at <a href="https://www.jpl.nasa.gov/">NASA JPL</a>.
           <br />
           I am inspired by creatives both in the sciences and the arts who deal
@@ -53,42 +63,50 @@ const Intro = () => (
 );
 
 const Contact = () => (
-  <HeaderInfo
-    content={
-      <p>
-        Here are ways you can reach me:
-        <br />
-        <ul>
-          <li>
-            <a href="https://github.com/invizibility">Github</a>
-          </li>
-          <li>
-            <a href="https://twitter.com/invizibility">Twitter</a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/aprameya-mysore/">LinkedIn</a>
-          </li>
-          <li>
-            <a href="mailto:a.mysore@gmail.com">Email</a>
-          </li>
-        </ul>
-      </p>
-    }
-  />
+  <>
+    {/* <DataVizBackground></DataVizBackground> */}
+    <HeaderInfo
+      content={
+        <p>
+          Here are ways you can reach me:
+          <br />
+          <ul>
+            <li>
+              <a href="https://github.com/invizibility">Github</a>
+            </li>
+            <li>
+              <a href="https://twitter.com/invizibility">Twitter</a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/aprameya-mysore/">
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="mailto:a.mysore@gmail.com">Email</a>
+            </li>
+          </ul>
+        </p>
+      }
+    />
+  </>
 );
 
 const CV = () => (
-  <HeaderInfo
-    content={
-      <p>
-        Aprameya is a product designer sdfsd technologist specializing in{" "}
-        <b>data visualization</b> at{" "}
-        <a href="https://www.jpl.nasa.gov/">NASA JPL</a>
-        <br />
-        Here are some of his selected projects:
-      </p>
-    }
-  />
+  <>
+    {/* <DataVizBackground></DataVizBackground> */}
+    <HeaderInfo
+      content={
+        <p>
+          Aprameya is a product designer sdfsd technologist specializing in{" "}
+          <b>data visualization</b> at{" "}
+          <a href="https://www.jpl.nasa.gov/">NASA JPL</a>
+          <br />
+          Here are some of his selected projects:
+        </p>
+      }
+    />
+  </>
 );
 
 console.log(META);
@@ -183,14 +201,16 @@ const IndexPage = () => {
   console.log(META);
   return (
     <div>
+      <DataVizBackground></DataVizBackground>
+
       <Header title="aprameya mysore" />
 
       <div
         style={{
           position: "relative",
           top: "100px",
-          marginLeft: "100px",
-          marginRight: "100px",
+          marginLeft: "150px",
+          marginRight: "150px",
         }}
       >
         {currLocationTransition((style, item, t, key) => (

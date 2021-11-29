@@ -3,10 +3,10 @@
   "content": "intro.md",
   "grid": [
     {
-      "title": "EuropaViz",
-      "copy": "Visualization Tool Suite for Autonomous Science on Europa",
-      "route": "projects/europaviz",
-      "image": "content/images/gallery/europaviz_gallery.png"
+      "title": "V.A.S.T.",
+      "copy": "Visualization Toolkit for Extraplanetary Autonomous Science",
+      "route": "projects/vast",
+      "image": "content/images/gallery/vast_gallery.png"
     },
     {
       "title": "CyberSAM",
@@ -15,10 +15,34 @@
       "image": "content/images/gallery/cybersam_gallery.png"
     },
     {
-      "title": "3D Genome",
-      "copy": "Interface Design Study for Structural Genomics Research",
-      "route": "projects/3dgenome",
-      "image": "content/images/gallery/3dgenome_gallery.png"
+      "title": "Visualizing RNA Secondary Structures",
+      "copy": "Building an Interactive Editor to Understand RNA Basepairing",
+      "route": "projects/secondarystruct",
+      "image": "content/images/gallery/secondarystruct_gallery.png"
+    },
+    {
+      "title": "Visualizing the 3D Genome Pt. 3",
+      "copy": "Part 3 of My Thesis Work on Visualizing Structural Genomics",
+      "route": "projects/3dgenome_pt3",
+      "image": "content/images/gallery/3dgenome_pt3_gallery.png"
+    },
+    {
+      "title": "Visualizing the 3D Genome Pt. 2",
+      "copy": "Part 2 of My Thesis Work on Visualizing Structural Genomics",
+      "route": "projects/3dgenome_pt2",
+      "image": "content/images/gallery/3dgenome_pt2_gallery.png"
+    },
+    {
+      "title": "Visualizing the 3D Genome Pt. 1",
+      "copy": "Part 1 of My Thesis Work on Visualizing Structural Genomics",
+      "route": "projects/3dgenome_pt1",
+      "image": "content/images/gallery/3dgenome_pt1_gallery.png"
+    },
+    {
+      "title": "Visualizing Geophysical Fluids",
+      "copy": "Designing Interfaces to Model Glacier Flow",
+      "route": "projects/geophysfluid",
+      "image": "content/images/gallery/geophysfluid_gallery.png"
     },
     {
       "title": "Soylent Saviour",
@@ -27,16 +51,28 @@
       "image": "content/images/gallery/soylentsaviour_gallery.png"
     },
     {
-      "title": "Understanding Hyperspectral Microscopy",
-      "copy": "Software and Animations for Understanding Novel Advancements in Microscopy",
+      "title": "Sonifying Hyperspectral Microscopy",
+      "copy": "Understanding Complex Cellular Biology through Sound",
       "route": "projects/hyperspectralmicro",
       "image": "content/images/gallery/hyperspectralmicro_gallery.png"
     },
     {
-      "title": "Visualizing the Brain",
-      "copy": "Scientific and Artistic Experiments in Visualizing Neural Activity Data",
+      "title": "Visualizing Mindfulness",
+      "copy": "Visualizing Neural Activations in Mindfulness Research",
       "route": "projects/brainviz",
       "image": "content/images/gallery/brainviz_gallery.png"
+    },
+    {
+      "title": "EEG Visualization Composer",
+      "copy": "Toolkit for Artistic Explorations into EEG Data",
+      "route": "projects/eegviz",
+      "image": "content/images/gallery/eegviz_gallery.png"
+    },
+    {
+      "title": "Animating Advanced Optical Methods",
+      "copy": "Visually Explaining Innovations in Optical Microscopy",
+      "route": "projects/microanimations",
+      "image": "content/images/gallery/microanimations_gallery.png"
     }
   ]
 }

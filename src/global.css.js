@@ -1,11 +1,11 @@
-import { createGlobalStyle, keyframes } from 'styled-components';
-import { accent } from 'constants/theme';
+import { createGlobalStyle, keyframes } from "styled-components";
+import { accent } from "constants/theme";
 
 const colorChange = keyframes`
   0% { color: red; }
   50% { color: blue; }
   100% { color: red; }
-`
+`;
 
 export default createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -39,7 +39,7 @@ export default createGlobalStyle`
     font-size: 62.5%;
   }
 
-  strong { 
+  b { 
     font-weight: bold;
     animation: ${colorChange} 1s infinite;
    }

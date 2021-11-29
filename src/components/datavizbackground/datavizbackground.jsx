@@ -1266,8 +1266,8 @@ const DataVizBackground = () => {
       const height = 80;
       //   canvas.width = width + 14;
       //   canvas.height = height + 5;
-      canvas.width = width * 40;
-      canvas.height = height * 60;
+      canvas.width = width * 20;
+      canvas.height = height * 15;
       //   canvas.style.top = "-5.5px";
       //   canvas.style.left = "-4px";
       canvas.style.top = (-1 * canvas.height) / 2 + height / 2 + "px";

@@ -1,27 +1,159 @@
 <div id="content" class="page-content" itemprop="articleBody">
-    <h4>Description</h4>
+    <h3>Background:</h3>
 
-<p>This project was one of my main efforts during the Summer 2016 Data Visualization Internship at the NASA Jet Propulsion Lab + Caltech. In collaboration with fellow intern <a href="http://petepolack.com/">Peter Polack</a>,  I worked with the <a href="http://guttmanlab.caltech.edu">Guttman Lab for lncRNA biology</a> to devise a workflow for exploring complex datasets describing the 3 dimensional conformation of genomic data inside cells, so as to identify potentially interesting patterns. The recent increased availability of such structural datasets has many genomicists interested in studying relationships between genomic structure and function. During our 10 week program, Peter and I designed a coherent visual schema for representing and exploring structural genomic data in 3D and 2D, and created an interactive web-based prototype for scientists to visualize and explore structures using our paradigm.</p>
+    <p>Scientists have known for quite some time that the genome actually does not look like a long horizontal line inside the cell; it actually looks like a tightly entangled noodle. The 3 dimensional shape of DNA inside a cell consists of entanglements that occur across several orders of magnitude. The following graphic from <a href="https://www.ncbi.nlm.nih.gov/pubmed/26226004">Ea et. al 2015</a> shows the way 2 meters of DNA sequence are packaged into 5 microns of spherically confined space in the center of the nucleus.<br><br>
+    
+    <figure><img style="width: 60%; display: block; margin-left: auto; margin-right: auto;"src="/content/projects/3dgenome/images/3dgenome_conformation.png"></figure>
+    <p>Understanding the unique circumstances under which a sequence will fold in different ways is critical to understanding how cells can exhibit a diverse array of behaviors driven by the same sequence, and how defects in genome structure can cause cancer and many other disease. The process of coming to such an understanding is a multistage process. Researchers must dive into conformation capture datasets, which are stored in the form of massive adjacency matrices, to observe patterns of topological association between certain segments of DNA sequence.</p>
+    
+    <p>Until very recently scientists could only infer about this 3d structure, not measure it. The recent increased availability of structural genomic sequencing technologies such as Hi-C and CHiP-seq have many genomics researchers interested in studying relationships between genomic structure and function. However the development of visualization tools to analyze these 3d structures is far behind the experimental methods used to generate them. This has resulted in a vast quantity of new data that is difficult to mine for interesting biological hypotheses.<br><br>
+    I started this project as an intern in the NASA JPL 2016 Data Visualization Internship Program. In collaboration with fellow intern Peter Polack, I worked with the Guttman Lab for lncRNA biology to devise workflows for exploring complex datasets describing the 3 dimensional conformation of genomic data inside cells, so as to identify potentially interesting patterns. Peter and I built these workflows into an interactive web based prototype for visualizing and juxtaposing novel 3d genomic structure datasets with widely used 2d genomic function datasets<br><br>
+    The success of this initial prototype was well received by the structural genomics community, leading the CMU-based Ma Lab for Computational Genomics to request my continued development and design efforts for their own bespoke software as part of my thesis work. My thesis culminated in an extensive design study exploring and developing interactive visualization tools to advance 3 specific complex research questions for my collaborators at the Ma Lab and the Guttman Lab<br><br>
+    
 
-<h4>Process</h4>
+For each of the 3 research questions I worked on, I conducted extensive user research into the challenges each lab faced in their work with structural genomic data, created a variety of prototype solutions, and eventually delivered javascript based tools to accelerate the labs’ scientific objectives.
 
-<p>Currently, there are no standard tools used to visualize 3 dimensional genomic structures with functional annotations, so researchers in this novel data space resort to piecing together workflows with individual non-integrated software packages that visualize either structural data or functional data in 2D. Peter and I extensively interviewed different Guttman Lab researchers to identify roadblocks in their current data exploration workflows and created a conceptual model for a structure-function interface that would provide an integrated and intuitive experience for exploring interesting patterns in 3D structural genomic data. We also used these interview opportunities to explore various types of visual media our researcher collaborators found effective for describing and making obvious particular structural characteristics involved in their hypothesis testing processes. These discussions allowed us to develop novel interaction designs for our visualization that were absent in current toolsets, but intuitive to our researchers and consistent with the visual grammar they employ.</p>
+<h3 class="question"><span>Question 1:</span> There are no tools designed specifically for analyzing 3d genomic structures. Given a 3d model of a genome reconstructed from sequencing data, how can we identify interesting features in this structure?</h3>
+
+
+
+<h4>User Research:</h4>
+
+<p>Evaluating the toolset Guttman Lab researchers were using to analyze 3d genomic structures revealed a glaring lack of tools designed specifically for understanding structural genomics. Researchers were subsisting by shoehorning 3d genomics data into tools designed for molecular visualization, such as PyMol.</p> 
+
+
 
 <figure class="half">
-<img src="/content/projects/3dgenome/images/3dgenome-900-450-1.png">
-<img src="/content/projects/3dgenome/images/3dgenome-900-450-2.png">	
-<figcaption>Directed graphs are a visual form our researchers found useful for static representation of genome structure complexity. We tested the viablity of these graphs as a means of interacting with and exploring structures.</figcaption>
+    <img src="/content/projects/3dgenome/images/pymol_viz.png">
+    <img src="/content/projects/3dgenome/images/pymol_genomeviz.png">	
+    <figcaption>PyMol is a very effective tool for visualizing proteins like the one seen on the left. However as seen on the right, PyMol rapidly loses utility for genome-scale visualization. The types of tagging and zooming features that apply to protein structures aren't relavent idioms in genomic structures</figcaption>
 </figure>
 
-<p>We used an iterative prototyping process leveraging both interactive prototypes and paper prototypes. The range of design materials Peter and I utilized in with the Guttman Lab researchers included paper storyboards, whiteboard sessions, 2d vector illustrated storyboards, and interactive javascript visualizations. Learning to move seamlessly between paper prototype materials and interactive digital prototypes as we progressed through the conceptual development of our data visualization solution was a central learning experience for me in this project.</p>
+<p>This type of shoehorning placed severe constraints on the level of insight researchers were able to garner from visualizing their simulated structures. While PyMol is an excellent tool for visualizing smaller protein structures, it simply doesn’t have the feature set to allow users to grapple with the sheer orders of magnitude size difference between a typical protein and an entire genome. <br><br>
+    
+    Peter and I extensively interviewed different Guttman Lab researchers to identify roadblocks in PyMol-based workflows and created a conceptual model for an interface that would provide an intuitive experience for exploring interesting patterns in 3D structural genomic data. We also used these interview opportunities to explore various types of visual media our researcher collaborators found effective for describing and making obvious particular structural characteristics involved in their hypothesis testing processes. These discussions allowed us to develop novel interaction designs for our visualization that were absent in current toolsets, but intuitive to our researchers and consistent with the visual grammar they employ.</p>
+
+</p>
+
+<h4>Iterative Prototyping:</h4>
+
+<p>It was clear a new type of UI designed for exploration of 3d genomic structures would blow the doors open on the types of hypotheses Guttman Lab researchers could ideate and test with the data they had available. The range of design materials Peter and I utilized in our iterative prototyping sessions with the Guttman Lab researchers included paper storyboards, whiteboard sessions, 2d vector illustrated storyboards, and interactive javascript visualizations.<br><br>
+    Through this variety of design media, we honed in on several interaction designs that would add significant value over the current patchwork PyMol based solution. One of such features was the ability to explore the various scales of genomic data through a directed acyclic graph (DAG) representation. Our UX research revealed DAGs have been used to great effect statically in publication figures--through prototyping we discovered interactive DAG’s could provide a variety of powerful exploratory features for structural genomics researchers.
+</p>
 
 <figure class="half">
-<img src="/content/projects/3dgenome/images/3dgenome_image3.png">
-<img src="/content/projects/3dgenome/images/3dgenome_image4.png">
-<figcaption>Testing general ideas for visualization features with paper storyboards and zoning in on specific interactions with javascript prototypes.</figcaption>
+    <img src="/content/projects/3dgenome/images/3dgenome-900-450-1.png">
+    <img src="/content/projects/3dgenome/images/3dgenome-900-450-2.png">	
+    <figcaption>Directed graphs are a visual form our researchers found useful for static representation of genome structure complexity. We tested the viablity of these graphs as a means of interacting with and exploring structures.</figcaption>
 </figure>
 
-<p>I am currently extending this work as part of my thesis research at Carnegie Mellon centered around designing data xsx visualizations for genomics. More information on my thesis and my exploration of the structure-function genomics data space can be seen on my <a href="https://invizibility.github.io/blog">blog</a></p>
+
+<h4>Delivering the Product</h4>
+<p>Our final delivery for the Guttman Lab was an interface that supported a variety of interactions with genomic structure data that were unavailable in any other software product. We leveraged DAG representation in several key ways, one of which was using DAG’s to zoom into and compare multiple structural datasets to see where common topological features occurred across several orders of magnitude.<br><br>
+<figure>
+    <img src = "/content/projects/3dgenome/images/graphviz_genome.png">
+    <figcaption>Zooming into a singular chromosome on multiple genomic structures and interactively comparing topologies was unheard of prior to our interface. This view catalyzed many important discussions about differences between structure datasets.</figcaption>
+</figure>
+</p>
+<p>
+    We built several more powerful features on the concept of using a 2D DAG to explore a 3D structural visualization, all of which benefited from the inherent ease of use DAGs provide on a 2D computer screen UI when interacting with a complex 3D structure that can self-occlude nuanced structures in a 2D projection. Another one of these features was coloring different parts of the genomic structure with maps generated by 1D/2D annotation. This allowed users to theorize about the ‘why’ behind certain topologies observed in the genomic structure.
+
+    <figure style="width: 80%; display: block; margin-left: auto; margin-right: auto;">
+        <img src = "/content/projects/3dgenome/images/2d3d_genomeviz.png">
+        <figcaption>Mapping color to chromosome number to understand structural confirmation of specific subsets of chromosomes in a given genome. Physical proximity of these chromosomes could indicate strong interactions between genes present in these chromosomes.</figcaption>
+    </figure>
+</p>
+<p>
+    Creating a UI that spurred hypothesis generation between structure and function of genomic sequences opened an entirely new research question of how structure and function data could be visualized together en masse to think about which kinds of genomic topologies facilitate which kinds of genomic functions. I explored this new arena in my second research endeavor with the Guttman Lab.<br><br>
+</p>
+<h3 class=question><span>Question 2:</span> There are no databases that exist to facilitate matching of structural data to other forms of sequencing for a given cell type. This vastly impedes hypothesis generation around structure-function relationships. How can we design a database of that allows scientists to ask better questions about structure-function relationships my facilitating these matches?</h3>
+<p>
+<figure >
+    <img src="/content/projects/3dgenome/images/3dgenome_imagelong.png">
+    <figcaption>The integration of 3D genomic data with widely available 2D and 1D sequencing can yield powerful insights into the 'why' and 'how' of genomic functions. Matching these data types can be a challenge with current database UIs</figcaption>
+</figure>
+</p>
+<h4>User Research:</h4>
+<p>
+    Existing databases like Cistrome are chock full of functional genomic data, and some others like ENCODE have both functional and structural genomic data, but the potentially interesting relationships between datasets in these databases are opaque, even to subject matter experts. Furthermore, these databases have no useful API or connective framework allowing systematic lookup or matching of structural data a researcher might have on hand to the plethora of functional data available in these databases. <br><br>
+    We needed to re-imagine what a database could look like if it were built to reveal structure-function relationships. I worked extensively with Guttman Lab postdoc Noah Ollikainen to understand what obstacles exist to matching such datasets at scale. These discussions yielded ontology diagrams articulating what a ‘match’ between structure data and function data looks like, and what issues present in current databases our new UI would have to overcome to facilitate these matches.<br><br>
+    <figure class="half">
+        <img src="/content/projects/3dgenome/images/3dgenome_chipontology6.png">
+        <img src="/content/projects/3dgenome/images/3dgenome_structureontology.png">
+    <!-- </figure>
+    <figure class="half"> -->
+        <img src="/content/projects/3dgenome/images/3dgenome_struct_func.png">
+        <img src="/content/projects/3dgenome/images/3dgenome_struct_func_issues.png">
+        <figcaption>Diagramming the ontology of structural genomic data and functional genomic data, and evaluating obstacles to systematic matching of datasets</figcaption>
+    </figure>
+</p>
+<p>
+    From these findings, we narrowed our focus onto the issue of finding functional datasets significantly similar to a known dataset. One of the main pain points Noah identified in current functional database UI’s was that even expert users are completely incapable of identifying which transcription factors or other functional experiments might be similar to experiments with which they are familiar. Just listing transcription factors by name provides no information whatsoever to a user unless they are already intimately familiar with that specific experiment or publication.<br><br>
+    It is ridiculous to expect a user to have read every paper behind every experimental dataset available in a database in order to use the database effectively. We sought out to create an alternative means of exploring a functional database in a way that could highlight and aggregate similar experiments to a user without requiring such a high barrier to entry.<br><br>
+</p>
+<h4>Iteration & Delivery</h4>
+<p>
+    Looking into literature on CHiP-seq and other transcriptomics work, I found a precedent of using computational aggregation to group similar functional data. Publications such as Park 2009 and Hon 2008 refer to algorithms that can cluster functional data into higher order classes to identify common features.<br><br>
+    Noah and I realized we could leverage this type of clustering to create similarity scores between a functional dataset of interest, and the corpus of datasets in the database. This pairwise similarity ranking could identify other functional datasets that have binding affinities to the same structural regions of the genome, which could spark a line of hypothesis generation as to why these transcription factors have structural commonalities.<br><br>
+    <figure >
+        <img style="width: 40%; display: block; margin-left: auto; margin-right: auto;" src="/content/projects/3dgenome/images/3dgenome_clustering.png">
+        <figcaption>
+            Noah and I generated a pairwise similarity score matrix of several thousand CHiP-seq experiments and found some interesting clusters of similarity.
+        </figcaption>
+    </figure>
+</p>
+<p>
+    Using this similarity score as a recommendation metric, I prototyped a UI that would visualize an entire functional database as a force directed graph elucidating the clusters of similar binding affinities. Noah and his colleagues immediately found this useful and were drawn to the capability of picking an experiment and being able to think in terms of centrality and distance to find other experimental data they likely had never known about before.<br><br>
+    <figure class="half">
+        <!-- <img src="/content/projects/3dgenome/images/3dgenome_image3.png"> -->
+        
+        <img src="/content/projects/3dgenome/images/3dgenome_peaks.png">
+        <img src="/content/projects/3dgenome/images/3dgenome_clusterUI2.png">
+        <figcaption>Using pairwise similarity to create a data driven graph UI creates allows researchers to explore previously unfamiliar parts of the database in a powerfully targeted way.</figcaption>
+    </figure>
+</p>
+<p>
+    The success of this novel interaction paradigm allowed Noah and his colleagues to think about structure-function relationships in a substantially more productive way. Our prototype stands as a vision of what future -omics databases could provide in UX value as the data space increases exponentially year by year.<br><br>
+</p>
+<h3 class=question><span>Question 3:</span> Using an interface that simultaneously visualizes multiple representations of a genome structure, how can we select, analyze, and compare multiple regions of interest?</h3>
+<p>
+    My work with the Guttman Lab was presented at several academic conferences by Noah and other members of the lab, some of which were attended by Ma Lab faculty. This ended up catalyzing a working relationship between myself and the Ma Lab at CMU as they sought to develop their own modular interface for structural genomics visualization. Jian Ma and his graduate students were particularly interested in the idea of selecting and comparing multiple regions of a genomic structure. Creating an intuitive UX for this multiselection is quite complicated, and I worked with Jian and his researchers to figure out how this could be best implemented to support their research goals.<br><br>
+</p>
+<h4>UX Research</h4>
+<p>
+    Jian already had been spearheading the development of several visualization modules, but the issue of multiselection of several regions across both a matrix representation and a 3d representation of a genomic structure remained an unsolved challenge for his team. <br><br>
+    I began my work with this team by interviewing Jian, the developers of the tool, and the prospective users of the tool to identify the nuances required to implement an ideal multiselection interaction design. In these interviews we hashed out paper prototypes of what ideal solutions might look like, evaluated pain points of the existing state of the tool, and discussed implementation challenges of possible solutions.<br><br>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <figure class="half">
+    <img src="/content/projects/3dgenome/images/3dgenome_clusterUI1.png">
+    <img src="/content/projects/3dgenome/images/3dgenome_clusterUI2.png">
+    <figcaption></figcaption>
+</figure> -->
+
+<figure class="half">
+    <img src="/content/projects/3dgenome/images/3dgenome_prototyping.png">
+    <img src="/content/projects/3dgenome/images/3dgenome_3ddemo.gif">
+    <figcaption></figcaption>
+</figure>
+
+<figure >
+    <img src="/content/projects/3dgenome/images/3dgenome_2dmatrix3dintegration.png">
+    <figcaption></figcaption>
+</figure>
 
     <hr>
     <!-- <footer class="page-footer">

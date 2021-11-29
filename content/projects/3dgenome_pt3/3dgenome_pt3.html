@@ -1,0 +1,63 @@
+<div id="content" class="page-content" itemprop="articleBody">
+    <h3>Background:</h3>
+
+    <p>
+        This work is the final part of a 3 part thesis project I started as an intern in the NASA JPL 2016 Data Visualization Internship Program which morphed into a multi-lab collaborative design study in visualization methods for structural genomics. For each of the 3 research questions I worked on, I conducted extensive user research into the challenges each lab faced in their work with structural genomic data, created a variety of prototype solutions, and eventually delivered javascript based tools to accelerate the labs’ scientific objectives.<br><br>
+        Parts <a href="/projects/3dgenome_pt1">1</a> and <a href="/projects/3dgenome_pt2">2</a> can be seen at the links provided.<br><br>
+        My work with the Guttman Lab covered in the first two parts of this series was presented at several academic conferences by Noah and other members of the lab, some of which were attended by faculty of the <a href="https://www.cs.cmu.edu/~jianma/index.html">Ma Lab for Computational Genomics</a>. This ended up catalyzing a working relationship between myself and the Ma Lab at CMU as they sought to develop their own interface for structural genomics visualization. <br><br>
+        Jian Ma and his graduate students were particularly interested in developing and testing algorithms to predict topological characteristics of certain regions of genomic sequence, then comparing these predictions against structural data and simulations describing the 3D conformation of that same sequence. No visualization tool existed at the time to support such a workflow, so the Ma Lab had to begin development of their own. As I worked with the Ma Lab on the development of this tool, my efforts focused around the following research question:
+
+    </p>
+
+    <h4 class=question><span>Question 3:</span> How can we select, analyze, and compare multiple regions of interest across multiple visual representations of a genomic structure?</h4>
+<h3>Process:</h3>
+    <p>
+    Creating an intuitive UX for multiselection and comparison of multiple regions of a genomic sequence is quite complicated, especially when integrating 3D visualization. I worked with Jian and his researchers to figure out what kinds of interaction designs and UI implementation would support their research goals. 
+</p>
+<h4>UX Research & Iteration</h4>
+<p>
+    I began my work with this team by interviewing Jian, the developers of the tool, and the prospective users of the tool to identify the nuances required to implement an ideal multiselection interaction design. In these interviews we hashed out paper prototypes of what ideal solutions might look like, evaluated pain points of the existing state of the tool, and discussed implementation challenges of possible solutions.<br><br>
+    <figure class="half">
+        <img  src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_prototyping2.png">
+        <img  src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_paperproto2.png">
+        <img  src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_uxvideo2.png">
+        <img  src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_uxtest.png">
+        <figcaption>Interviewing the Ma Lab researchers and developers to clarify use cases for multiselection and comparison, and to understand pain points with existing workflows</figcaption>
+    </figure>
+    
+</p>
+<p>
+    One of the main revelations of these discussions was the necessity for a UI to show 3D and adjacency matrix representation of the structural data, as well as 2D representations of the topology predictions, all on the screen at the same time. When comparing model predictions vs actual structure, users were frustrated with how much context they would lose by switching between different tools. Solving this context loss would require a module-based development approach that could synchronize selections from one representation to the other through a shared state.<br><br>
+</p>
+<h4>Delivering the Product:</h4>
+<p>
+    I worked with the Ma Lab developers to create several types of 3D visualization modules to fit into their existing tool. We started by synchronizing selections of one region on the sequence, then moved on to multiple regions.<br><br>
+    <figure class="half">
+        <img src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_componentdemo.gif">
+        <img src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_componentdemo2.gif">
+        <figcaption>Prototypes of the 3D visualization modules i developed for the Ma Lab. The interaction on the left accepts selection input for one region, while the interaction on the right scales to multiple regions</figcaption>
+    </figure>
+</p>
+<p>
+    We then integrated the module into a UI composed of several other modules, each of which would allow the user to select a region of sequence and see that selection synchronized across all structural visualizations and the functional visualizations simultaneously.<br><br>
+    <figure>
+        <img src="/content/projects/3dgenome_pt3/images/3dgenome_pt3_componentUI.png">
+        <figcaption>Composing a UI with multiple representations to facilitate comparative analysis of genomic structure</figcaption>
+    </figure>
+</p>
+<h3>Impact:</h3>
+<p>
+    This new compositional UI was a huge improvement over the previous workflow which required multiple tools. As users began to explore datasets and model predictions in this view, it began to provoke new types of discussion about model engineering and the types of insight comparative analysis could yield.<br><br>
+    Upon spending some time visualizing 3D structures and predictions in the new UI, one of the Ma Lab postdocs made an interesting observation:
+    <blockquote>
+        <p>
+            Selecting and zooming into pairs of regions on the Hi-C matrix is very interesting because it allows us to think about interactions at different scales. When we were able to put a 3d model in the mix, the structure could disagree with the matrix because the matrix is population average data but the 3d structure represents a simulation of a single cell. In the future everything will be single cell; single cell Hi-C sequencing is becoming easier. Being able to view the model predictions on a single cell scale with the 3D structure would be so powerful.
+        </p>
+    </blockquote>
+    </p>
+<p>
+    This observation was an impactful moment in this project for several reasons. Firstly, it showed how visualization can crystallize abstract discussions about model engineering around tangible visual artifacts. In this case, the challenges of using both population scale data and single cell data to validate a model prediction are visually apparent when juxtaposing adjacency matrices with 3d structures.<br><br>
+    Secondly, giving scientists an opportunity to think ‘around the corner’ of what is currently possible with sequencing technology promotes the development of user experiences that can meet the technology when it arrives. It will be very exciting in the coming years to see how future iterations of this tool can be used by the Ma Lab and others to build knowledge out of single cell Hi-C experimental data when this becomes widely available to the genomics community.<br><br>
+
+</p>
+</div>

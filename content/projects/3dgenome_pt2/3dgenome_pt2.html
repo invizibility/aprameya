@@ -1,0 +1,85 @@
+<div id="content" class="page-content" itemprop="articleBody">
+    <h3>Background:</h3>
+
+    <p>
+        This work is the second part of a 3-part thesis project I started as an intern in the NASA JPL 2016 Data Visualization Internship Program which morphed into a multi-lab collaborative design study in visualization methods for structural genomics. For each of the 3 research questions I worked on, I conducted extensive user research into the challenges each lab faced in their work with structural genomic data, created a variety of prototype solutions, and eventually delivered javascript based tools to accelerate the labs’ scientific objectives. <br><br>
+        In <a href="/projects/3dgenome_pt1">Part 1 of my thesis work</a> I explored how novel data visualization interfaces could catalyze research in the burgeoning field of structural genomics. Our work dove into understanding the importance of structural genomics to the overall value proposition of genomics as a field of study, and how scientists at the cutting edge of this field are searching for ways to contextualize structural conformation data with functional data to achieve higher order insights. We found that once equipped with the right kinds of visualization tools, researchers could identify topologies of interest in a genomic structure and cross reference those regions of genomic sequence against expermental data which describes functional behaviors of those regions.<br><br>
+        
+        In Part 2, I continued my work with the <a href="https://guttmanlab.caltech.edu/">Guttman Lab for lncRNA biology</a> to tackle another obstacle to hypothesis generation in the field of structural genomics, namely the lack of any sort of organizational paradigm or UI allowing researchers to match the massive amounts of functional genomic data present in sequencing databases to novel structural information. We discussed a workflow in Part 1 where a researcher would identify an interesting structural feature in a genome, then reference functional data corresponding to that same sequence region to hypothesize about why a conformation might explain observed functional characteristics of that region. Our user research indicated that many researchers also prefer the inverse workflow; starting with one or several functional datasets for a given genome then looking to conformation data to reason about structure-function causalities. <br><br>
+        The common thread here is that the unification of structural and functional data allows genomicists to formulate models for the general principles that determine 3D genome structure and relationships between 3d genome structure and specific cellular function. <br><br>
+        <figure >
+            <img src="/content/projects/3dgenome_pt2/images/3dgenome_pt2_imagelong.png">
+            <figcaption>The integration of 3D genomic data with widely available 2D and 1D sequencing can yield powerful insights into the 'why' and 'how' of genomic functions. Matching these data types can be a challenge with current database UIs</figcaption>
+        </figure>
+       
+
+
+    </p>
+    <p>In order to further facilitate the generation of these structure-function hypotheses, I focused on the following research question:</p>
+    <h4 class=question><span>Question 2:</span> There are no databases that exist to facilitate matching of structural data to other forms of sequencing for a given cell type. This vastly impedes hypothesis generation around structure-function relationships. How can we design a database of that allows scientists to ask better questions about structure-function relationships my facilitating these matches?</h4>
+
+    <p>I worked closely with Guttman Lab postdoc <a href="https://scholar.google.com/citations?user=GBFen48AAAAJ&hl=en">Noah Ollikainen</a> to understand what obstacles exist to matching structure and function datasets at scale, and to re-imagine what a sequencing database could look like if it were designed to reveal structure-function relationships.<br><br></p>
+    <h3>Process:</h3>
+    <h4>User Research</h4>
+    <p>Existing databases like <a href="http://cistrome.org/db/#/">Cistrome</a> are chock full of functional genomic data, and some others like <a href="https://www.encodeproject.org/matrix/?type=Experiment&status=released">ENCODE</a> have both functional and structural genomic data, but the potentially interesting structure-function relationships between datasets in these databases are opaque, even to subject matter experts. In my user interviews with Noah, he made the following salient observation on this particular obstacle (emphasis added):
+        <blockquote>
+            <p>Current websites for accessing functional genomic data allow users to view gene expression data (RNA-seq) as well as find the DNA binding sites for proteins that regulate gene expression (ChIP-seq). A major challenge with using these websites is navigating the sheer volume of data, as RNA-seq experiments have now been performed in hundreds of different cell types and ChIP-seq experiments been performed for hundreds of different proteins. <strong>To access these data, a user must know exactly what they are looking for</strong>, e.g., the DNA binding sites of protein A in the genome of human cell-type B, <strong>and this severely limits our ability to perform exploratory research that enables novel discoveries.</strong></p>
+        </blockquote>
+    </p>
+    <p>After discussing the limitations of existing sequencing database UI's, we began ideating characteristics of a better UI with a workflow designed to lead users to interesting matches between datasets. Noah went on to elaborate:
+        <blockquote>
+            <p>
+                An improved interface would organize these data in a biologically meaningful way. For example, these data could be organized hierarchically, where experiments in cell types derived from the same organ (e.g., liver, brain, kidney) are grouped together and experiments on proteins with a shared function (gene activator, gene repressor) are grouped together. Additionally, filters could be implemented to allow the user to restrict the data to a subset of interest, for example, cell lines derived from females only or data collected within the past N years. This organizational scheme would allow the user to easily select the most relevant functional genomic data for their research and explore the general relationship between these data and 3D genome structure.
+            </p>
+
+        </blockquote>
+    </p>
+    <p>
+        My discussions with Noah indicated that we needed to create a new organizational strategy that would emphasize such 'biologically meaningful' relationships between relevant datasets. I created a series of ontology diagrams articulating the details of how we might create such an organizational paradigm, and what obstacles could complicate a new sequencing database UI that would follow this paradigm.
+        <figure class="half">
+            <img src="/content/projects/3dgenome_pt2/images/3dgenome_pt2_chipontology6.png">
+            <img src="/content/projects/3dgenome_pt2/images/3dgenome_pt2_structureontology.png">
+        <!-- </figure>
+        <figure class="half"> -->
+            <img src="/content/projects/3dgenome_pt2/images/3dgenome_pt2_struct_func.png">
+            <img src="/content/projects/3dgenome_pt2/images/3dgenome_pt2_struct_func_issues.png">
+            <figcaption>Diagramming the ontology of structural genomic data and functional genomic data, and evaluating obstacles to systematic matching of datasets</figcaption>
+        </figure>
+    </p>
+    <p>
+        We narrowed our focus onto the issue of finding other functional datasets significantly similar to a known functional dataset. We sought out to create an alternative means of exploring a functional database in a way that could highlight and aggregate similar experiments to a user without requiring such a high barrier to entry.<br><br>
+    </p>
+    <h4>Iteration & Delivery</h4>
+    <p>
+        Looking into literature on CHiP-seq and other transcriptomics work, I found a precedent of using computational aggregation to group similar functional data. Publications such as <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3191340/#R84">Park 2009</a> and <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2556089/">Hon 2008</a> refer to algorithms that can cluster functional data into higher order classes to identify common features.<br><br>
+        Noah and I realized we could leverage this type of clustering to create similarity scores between a functional dataset of interest, and the corpus of datasets in the database. This pairwise similarity ranking could identify other functional datasets that have binding affinities to the same structural regions of the genome, which could spark a line of hypothesis generation as to why these transcription factors have structural commonalities.<br><br>
+        <figure >
+            <img style="width: 40%; display: block; margin-left: auto; margin-right: auto;" src="/content/projects/3dgenome/images/3dgenome_clustering.png">
+            <figcaption>
+                Noah and I generated a pairwise similarity score matrix of several thousand CHiP-seq experiments and found some interesting clusters of similarity.
+            </figcaption>
+        </figure>
+    </p>
+    <p>
+        Using this similarity score as a recommendation metric, I prototyped a UI that would visualize an entire functional database as a force directed graph elucidating the clusters of similar binding affinities. Noah and his colleagues immediately found this useful and were drawn to the capability of picking an experiment and being able to think in terms of centrality and distance to find other experimental data they likely had never known about before.<br><br>
+        <figure class="half">
+            <!-- <img src="/content/projects/3dgenome/images/3dgenome_image3.png"> -->
+            
+            <img src="/content/projects/3dgenome/images/3dgenome_peaks.png">
+            <img src="/content/projects/3dgenome/images/3dgenome_clusterUI2.png">
+            <figcaption>Using pairwise similarity to create a data driven graph UI creates allows researchers to explore previously unfamiliar parts of the database in a powerfully targeted way.</figcaption>
+        </figure>
+    </p>
+    
+    <h3>Impact:</h3>
+    <p>
+        The success of our novel clustering interaction paradigm allowed Noah and his colleagues to think about structure-function relationships in a substantially more productive way. One of the goals of genomic data visualization is to allow the exploration of complex data spaces in meaningful ways. In many cases, researchers don’t know what they are looking for, and look to visualization as a means for developing heuristics for narrowing down and identifying signficant features in these complex data spaces. In this case study and in <a href="/projects/3dgenome_pt1">part 1</a>, we built visualization tools that catalyze exploratory thinking and pave the way for new hypotheses to be generated and tested in the burgeoning field of structural genomics research. As the availability of new types of -omics data grows exponentially year by year, novel interaction designs and UX innovations in the software that house these data are critical to allow creative scientific thinkers to build new knowledge at the frontiers of life science.<br><br>
+        Another valuable outcome of this study was the successful use of data-driven interaction designs. When considering criteria of success for visualization tools, I am reminded of the following diagram from <a href= "https://www.oreilly.com/library/view/visualizing-data/9780596514556/ch01.html">Ben Fry's "Visualizing Data"</a>:
+        <figure>
+            <img src="/content/projects/3dgenome_pt2/images/3dgenome_pt2_benfrystages.png">
+            <figcaption>Ben Fry's seven stages of visualizing data; feedback loops connecting these stages allow visualizations to deliver powerful insights</figcaption>
+        </figure>
+       
+    </p>
+    <p>Our clustering paradigm effectively leveraged a visualization of an entire data space to lead users to datasets which would then be visualized themselves to mine for hypotheses. Our interface shows the power the the feedback loops that Fry describes in his seminal work on data visualization, and serves as an indication to the genomics software development community that UX principles that apply to making useful data visualizations of individual datasets can scale to making useful UI's to organize an entire corpus of data.<br><br></p>
+</div>

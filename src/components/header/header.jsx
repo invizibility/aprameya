@@ -7,8 +7,9 @@ const Container = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-right: 100px;
-  margin-left: 100px;
+  margin-right: 150px;
+  margin-left: 150px;
+
   div {
     font-size: 1.2rem;
   }
@@ -51,7 +52,11 @@ const Header = ({ title }) => {
         <div style={{ flexDirection: "row", fontWeight: 700 }}>
           <Link
             to="/"
-            style={{ fontFamily: "Fette Unz Fraktur", fontSize: 24 }}
+            style={{
+              fontFamily: "Fette Unz Fraktur",
+              fontSize: 30,
+              backgroundColor: "rgba(255, 255, 255, 0.6)",
+            }}
           >
             {title}
           </Link>
