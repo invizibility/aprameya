@@ -78,13 +78,13 @@
       },
       "headerImage": "soylentsaviour_header.png",
       "slug": "soylentsaviour",
-      "content": "3dgenome.html"
+      "content": "soylentsaviour.html"
     },
     {
       "title": "Sonifying Hyperspectral Microscopy",
       "subtitleData": {
         "date": "2016",
-        "skills": "d3"
+        "skills": "Max/MSP + Jitter, MATLAB, ImageJ, SuperCollider, Java"
       },
       "headerImage": "hyperspectralmicro_header.png",
       "slug": "hyperspectralmicro",
@@ -116,7 +116,7 @@
         "date": "2011",
         "skills": "Paper Prototyping, Adobe Creative Suite"
       },
-      "headerImage": "3dgenome/images/3dgenome_header.png",
+      "headerImage": "microanimations_header.png",
       "slug": "microanimations",
       "content": "microanimations.html"
     }

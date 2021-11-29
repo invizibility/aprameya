@@ -5,7 +5,7 @@
         NASA is sending a JPL designed spacecraft to land on the icy surface of Europa in 2038 called the Europa Lander. Lander will drill into the ice, collect multiple samples from below the surface, analyze these samples for traces of life, and beam the most important subset of information back to earth for scientists to analyze further. <br><br>
         <figure style="margin-left: 15vw; width: 60%;">
             <img src="/content/projects/vast/images/vast_landerschematic.png">
-            <figcaption>Tentative design of the Europa Lander Spacecraft (Source <a href="https://europa.nasa.gov/resources/58/europa-lander-study-2016-report/">2016 Europa Lander Study Report</a>)</figcaption>
+            <figcaption>Tentative design of the Europa Lander Spacecraft (Source: <a href="https://europa.nasa.gov/resources/58/europa-lander-study-2016-report/">2016 Europa Lander Study Report</a>)</figcaption>
         </figure>
 
     </p>
@@ -19,13 +19,13 @@
     <p>
         Europa Lander scientists want to implement a “Ground In The Loop” architecture that inserts human oversight and course correction capabilities into the spacecraft’s decision making process as insurance against certain edge cases where the onboard autonomy might make a suboptimal decision despite its best intentions. These edge cases include errors like missing an opportunity to take additional experimental data of a particularly noteworthy sample, or failing to adequately prioritize noteworthy data to be sent back to earth as soon as possible.<br><br>
         I interviewed a variety of engineers, operators, and scientists across other missions that implemented some degree of onboard spacecraft autonomy, including Mars Perseverance, to learn how others have dealt with the need to either adjust the goals of a spacecraft or the means to achieving those goals while mid-mission. These interviews revealed 3 primary challenges that missions grapple with when wanting to integrate Ground In The Loop control capabilities into an autonomous mission system architecture: 
-
+        <br><br>
         <ol>
             <li>Windows of opportunity for operators on Earth to intervene into autonomous decision making are narrow, and they only come about during specific predefined Uplink intervals during which the spacecraft can receive instructions from Earth. These windows can be especially narrow when dealing with a target as far away as Europa. Deciding to intervene or not requires complex consensus building and cost benefit analysis involving many Science, Operational, and Engineering teams, and these decisions need to be made quickly. </li>
             <li>The current state of software used to build the aforementioned consensus is a highly fragmented ecosystem of analytical tools that are disconnected from the algorithms used to simulate spacecraft activity. This disconnect between simulation and analysis of spacecraft activity introduces many inefficiencies into both planning and operational phases of autonomous missions.</li>
             <li>There is little to no reusability of these analytical tools between different autonomous missions. Despite there being many similarities in the analytical process across missions, the lack of modularity in science planning software design means that new autonomous missions are often on the hook for reinventing the wheel by building their own analytical tools from scratch.</li>
         </ol>
-
+        <br>
         <figure class="half">
             <img src="/content/projects/vast/images/vast_scheduler_current_better.png">
             <img src="/content/projects/vast/images/vast_fragmentation.png">
@@ -62,7 +62,7 @@
             <li>3D environmental visualization components with sensor data overlays and charts powered by ROS data to give context for sample selection decisions</li>
             <li>Integration with other 3D visualization components developed by other autonomous robotics software teams at JPL</li>
             <li>More robust bidirectional API integration to allow for higher fidelity feedback data from the scheduling engine</li>
-            <li>Support for more sophisticated autonomous scheduling architectures (such as TaskNets)</li>
+            <li>Support for more sophisticated autonomous scheduling architectures (such as <a href="https://arxiv.org/pdf/2009.07361.pdf">TaskNets</a>)</li>
         </ul>
         <figure class="half">
             <img src="/content/projects/vast/images/vast_sampling.png">

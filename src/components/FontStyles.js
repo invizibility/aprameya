@@ -5,10 +5,13 @@ import FannGrotesqueReg from "../../content/fonts/FannGrotesquePro-Regular.woff"
 import FannGrotesqueSemiBold from "../../content/fonts/FannGrotesquePro-SemiBold.woff";
 import FannGrotesqueThin from "../../content/fonts/FannGrotesquePro-Thin.woff";
 import FannGrotesqueThinItalic from "../../content/fonts/FannGrotesquePro-ThinItalic.woff";
+import FannGrotesqueBoldItalic from "../../content/fonts/FannGrotesquePro-BoldItalic.woff";
 import FannGrotesqueSemiboldItalic from "../../content/fonts/FannGrotesquePro-SemiBoldItalic.woff";
 import FannGrotesqueItalic from "../../content/fonts/FannGrotesquePro-Italic.woff";
 import GeorgiaProLight from "../../content/fonts/GeorgiaPro-Light.woff2";
 import GeorgiaProRegular from "../../content/fonts/GeorgiaProW01Regular.woff2";
+import GeorgiaProItalic from "../../content/fonts/GeorgiaPro-Italic.woff2";
+import GeorgiaProBoldItalic from "../../content/fonts/GeorgiaPro-BoldItalic.woff2";
 import GeorgiaProSemiBold from "../../content/fonts/GeorgiaPro-Semibold.woff2";
 import GeorgiaProBold from "../../content/fonts/GeorgiaPro-Bold.woff2";
 import ApercuReg from "../../content/fonts/ApercuRegular.otf";
@@ -40,6 +43,16 @@ const FontStyles = createGlobalStyle`
 }
 
 @font-face {
+    font-family: 'Georgia Pro Italic';
+    src: url(${GeorgiaProItalic}) format('woff2');
+}
+
+@font-face {
+    font-family: 'Georgia Pro Bold Italic';
+    src: url(${GeorgiaProBoldItalic}) format('woff2');
+}
+
+@font-face {
   font-family: 'Fette Unz Fraktur';
   src: url(${FrakturWoff}) format('woff');
 }
@@ -62,6 +75,11 @@ const FontStyles = createGlobalStyle`
 @font-face {
     font-family: "Fann Grotesque SemiBold Italic";
     src: url(${FannGrotesqueSemiboldItalic}) format('woff');
+}
+
+@font-face {
+    font-family: "Fann Grotesque Bold Italic";
+    src: url(${FannGrotesqueBoldItalic}) format('woff');
 }
 
 @font-face {

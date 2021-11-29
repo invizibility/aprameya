@@ -79883,6 +79883,8 @@ module.exports = "/FannGrotesquePro-SemiBold.70629ba6.woff";
 module.exports = "/FannGrotesquePro-Thin.0c505bee.woff";
 },{}],"../content/fonts/FannGrotesquePro-ThinItalic.woff":[function(require,module,exports) {
 module.exports = "/FannGrotesquePro-ThinItalic.2c72e1b1.woff";
+},{}],"../content/fonts/FannGrotesquePro-BoldItalic.woff":[function(require,module,exports) {
+module.exports = "/FannGrotesquePro-BoldItalic.9905c31a.woff";
 },{}],"../content/fonts/FannGrotesquePro-SemiBoldItalic.woff":[function(require,module,exports) {
 module.exports = "/FannGrotesquePro-SemiBoldItalic.b468de4b.woff";
 },{}],"../content/fonts/FannGrotesquePro-Italic.woff":[function(require,module,exports) {
@@ -79891,6 +79893,10 @@ module.exports = "/FannGrotesquePro-Italic.e580c7a7.woff";
 module.exports = "/GeorgiaPro-Light.669c6f7d.woff2";
 },{}],"../content/fonts/GeorgiaProW01Regular.woff2":[function(require,module,exports) {
 module.exports = "/GeorgiaProW01Regular.9126c29b.woff2";
+},{}],"../content/fonts/GeorgiaPro-Italic.woff2":[function(require,module,exports) {
+module.exports = "/GeorgiaPro-Italic.8c0d9e08.woff2";
+},{}],"../content/fonts/GeorgiaPro-BoldItalic.woff2":[function(require,module,exports) {
+module.exports = "/GeorgiaPro-BoldItalic.de34c9d9.woff2";
 },{}],"../content/fonts/GeorgiaPro-Semibold.woff2":[function(require,module,exports) {
 module.exports = "/GeorgiaPro-Semibold.a667acae.woff2";
 },{}],"../content/fonts/GeorgiaPro-Bold.woff2":[function(require,module,exports) {
@@ -79925,6 +79931,8 @@ var _FannGrotesqueProThin = _interopRequireDefault(require("../../content/fonts/
 
 var _FannGrotesqueProThinItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-ThinItalic.woff"));
 
+var _FannGrotesqueProBoldItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-BoldItalic.woff"));
+
 var _FannGrotesqueProSemiBoldItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-SemiBoldItalic.woff"));
 
 var _FannGrotesqueProItalic = _interopRequireDefault(require("../../content/fonts/FannGrotesquePro-Italic.woff"));
@@ -79932,6 +79940,10 @@ var _FannGrotesqueProItalic = _interopRequireDefault(require("../../content/font
 var _GeorgiaProLight = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-Light.woff2"));
 
 var _GeorgiaProW01Regular = _interopRequireDefault(require("../../content/fonts/GeorgiaProW01Regular.woff2"));
+
+var _GeorgiaProItalic = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-Italic.woff2"));
+
+var _GeorgiaProBoldItalic = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-BoldItalic.woff2"));
 
 var _GeorgiaProSemibold = _interopRequireDefault(require("../../content/fonts/GeorgiaPro-Semibold.woff2"));
 
@@ -79952,10 +79964,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 //import RobotoWoff2 from "./fonts/roboto-condensed-v19-latin-regular.woff2";
-var FontStyles = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\n@font-face {\n    font-family: 'Georgia Pro Bold';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Light';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Regular';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Semi Bold';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n  font-family: 'Fette Unz Fraktur';\n  src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: 'Nib Pro Regular';\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Mono\";\n    src: url(", ") format('woff');\n}\n"])), _GeorgiaProBold.default, _GeorgiaProLight.default, _GeorgiaProW01Regular.default, _GeorgiaProSemibold.default, _fetteUnzFraktur.default, _NibProRegular.default, _FannGrotesqueProRegular.default, _FannGrotesqueProSemiBold.default, _FannGrotesqueProSemiBoldItalic.default, _FannGrotesqueProThin.default, _FannGrotesqueProThinItalic.default, _FannGrotesqueProItalic.default, _ApercuRegular.default, _ApercuMedium.default, _ApercuLight.default, _ApercuProMono.default);
+var FontStyles = (0, _styledComponents.createGlobalStyle)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n\n@font-face {\n    font-family: 'Georgia Pro Bold';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Light';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Regular';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Semi Bold';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Italic';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n    font-family: 'Georgia Pro Bold Italic';\n    src: url(", ") format('woff2');\n}\n\n@font-face {\n  font-family: 'Fette Unz Fraktur';\n  src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: 'Nib Pro Regular';\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque SemiBold Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Bold Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Thin Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Fann Grotesque Italic\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Regular\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu SemiBold\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Thin\";\n    src: url(", ") format('woff');\n}\n\n@font-face {\n    font-family: \"Apercu Mono\";\n    src: url(", ") format('woff');\n}\n"])), _GeorgiaProBold.default, _GeorgiaProLight.default, _GeorgiaProW01Regular.default, _GeorgiaProSemibold.default, _GeorgiaProItalic.default, _GeorgiaProBoldItalic.default, _fetteUnzFraktur.default, _NibProRegular.default, _FannGrotesqueProRegular.default, _FannGrotesqueProSemiBold.default, _FannGrotesqueProSemiBoldItalic.default, _FannGrotesqueProBoldItalic.default, _FannGrotesqueProThin.default, _FannGrotesqueProThinItalic.default, _FannGrotesqueProItalic.default, _ApercuRegular.default, _ApercuMedium.default, _ApercuLight.default, _ApercuProMono.default);
 var _default = FontStyles;
 exports.default = _default;
-},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../content/fonts/fette-unz-fraktur.woff":"../content/fonts/fette-unz-fraktur.woff","../../content/fonts/NibPro-Regular.woff":"../content/fonts/NibPro-Regular.woff","../../content/fonts/FannGrotesquePro-Regular.woff":"../content/fonts/FannGrotesquePro-Regular.woff","../../content/fonts/FannGrotesquePro-SemiBold.woff":"../content/fonts/FannGrotesquePro-SemiBold.woff","../../content/fonts/FannGrotesquePro-Thin.woff":"../content/fonts/FannGrotesquePro-Thin.woff","../../content/fonts/FannGrotesquePro-ThinItalic.woff":"../content/fonts/FannGrotesquePro-ThinItalic.woff","../../content/fonts/FannGrotesquePro-SemiBoldItalic.woff":"../content/fonts/FannGrotesquePro-SemiBoldItalic.woff","../../content/fonts/FannGrotesquePro-Italic.woff":"../content/fonts/FannGrotesquePro-Italic.woff","../../content/fonts/GeorgiaPro-Light.woff2":"../content/fonts/GeorgiaPro-Light.woff2","../../content/fonts/GeorgiaProW01Regular.woff2":"../content/fonts/GeorgiaProW01Regular.woff2","../../content/fonts/GeorgiaPro-Semibold.woff2":"../content/fonts/GeorgiaPro-Semibold.woff2","../../content/fonts/GeorgiaPro-Bold.woff2":"../content/fonts/GeorgiaPro-Bold.woff2","../../content/fonts/ApercuRegular.otf":"../content/fonts/ApercuRegular.otf","../../content/fonts/ApercuMedium.otf":"../content/fonts/ApercuMedium.otf","../../content/fonts/ApercuLight.otf":"../content/fonts/ApercuLight.otf","../../content/fonts/ApercuProMono.otf":"../content/fonts/ApercuProMono.otf"}],"constants/breakpoints.js":[function(require,module,exports) {
+},{"styled-components":"../node_modules/styled-components/dist/styled-components.browser.esm.js","../../content/fonts/fette-unz-fraktur.woff":"../content/fonts/fette-unz-fraktur.woff","../../content/fonts/NibPro-Regular.woff":"../content/fonts/NibPro-Regular.woff","../../content/fonts/FannGrotesquePro-Regular.woff":"../content/fonts/FannGrotesquePro-Regular.woff","../../content/fonts/FannGrotesquePro-SemiBold.woff":"../content/fonts/FannGrotesquePro-SemiBold.woff","../../content/fonts/FannGrotesquePro-Thin.woff":"../content/fonts/FannGrotesquePro-Thin.woff","../../content/fonts/FannGrotesquePro-ThinItalic.woff":"../content/fonts/FannGrotesquePro-ThinItalic.woff","../../content/fonts/FannGrotesquePro-BoldItalic.woff":"../content/fonts/FannGrotesquePro-BoldItalic.woff","../../content/fonts/FannGrotesquePro-SemiBoldItalic.woff":"../content/fonts/FannGrotesquePro-SemiBoldItalic.woff","../../content/fonts/FannGrotesquePro-Italic.woff":"../content/fonts/FannGrotesquePro-Italic.woff","../../content/fonts/GeorgiaPro-Light.woff2":"../content/fonts/GeorgiaPro-Light.woff2","../../content/fonts/GeorgiaProW01Regular.woff2":"../content/fonts/GeorgiaProW01Regular.woff2","../../content/fonts/GeorgiaPro-Italic.woff2":"../content/fonts/GeorgiaPro-Italic.woff2","../../content/fonts/GeorgiaPro-BoldItalic.woff2":"../content/fonts/GeorgiaPro-BoldItalic.woff2","../../content/fonts/GeorgiaPro-Semibold.woff2":"../content/fonts/GeorgiaPro-Semibold.woff2","../../content/fonts/GeorgiaPro-Bold.woff2":"../content/fonts/GeorgiaPro-Bold.woff2","../../content/fonts/ApercuRegular.otf":"../content/fonts/ApercuRegular.otf","../../content/fonts/ApercuMedium.otf":"../content/fonts/ApercuMedium.otf","../../content/fonts/ApercuLight.otf":"../content/fonts/ApercuLight.otf","../../content/fonts/ApercuProMono.otf":"../content/fonts/ApercuProMono.otf"}],"constants/breakpoints.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -80169,12 +80181,12 @@ module.exports = {
     },
     "headerImage": "soylentsaviour_header.png",
     "slug": "soylentsaviour",
-    "content": "3dgenome.html"
+    "content": "soylentsaviour.html"
   }, {
     "title": "Sonifying Hyperspectral Microscopy",
     "subtitleData": {
       "date": "2016",
-      "skills": "d3"
+      "skills": "Max/MSP + Jitter, MATLAB, ImageJ, SuperCollider, Java"
     },
     "headerImage": "hyperspectralmicro_header.png",
     "slug": "hyperspectralmicro",
@@ -80203,7 +80215,7 @@ module.exports = {
       "date": "2011",
       "skills": "Paper Prototyping, Adobe Creative Suite"
     },
-    "headerImage": "3dgenome/images/3dgenome_header.png",
+    "headerImage": "microanimations_header.png",
     "slug": "microanimations",
     "content": "microanimations.html"
   }]
@@ -80211,7 +80223,7 @@ module.exports = {
 },{}],"components/project/project.tsx":[function(require,module,exports) {
 "use strict";
 
-var _templateObject, _templateObject2, _templateObject3, _templateObject4;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -80311,8 +80323,8 @@ var Subtitle = function Subtitle(_ref) {
   }, skills));
 };
 
-var ProjectBodyStyled = styled_components_1.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  p {\n    font-family: \"Georgia Pro Regular\";\n  }\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-family: \"Fann Grotesque SemiBold\";\n  }\n\n  .question {\n    font-family: \"Fann Grotesque SemiBold Italic\";\n  }\n  .question span {\n    text-decoration: underline;\n  }\n  img {\n    width: 100%;\n  }\n\n  .half > img {\n    width: 49%;\n    height: auto;\n    ", "\n  }\n\n  figure {\n    display: block;\n    ", ";\n  }\n\n  figure figcaption {\n    font-family: \"Fann Grotesque Thin Italic\";\n  }\n\n  li {\n    font-family: \"Georgia Pro Regular\";\n\n    margin-bottom: 0.5rem;\n  }\n\n  blockquote {\n    padding-left: 1.618em;\n    padding-right: 1.618em;\n    border-left: 6px solid #3498db;\n  }\n  blockquote p {\n    font-family: \"Fann Grotesque Regular\", \"Segoe UI\", Arial, sans-serif;\n\n    font-size: 1.1rem;\n    line-height: 1;\n    margin-bottom: 24 px;\n    margin-bottom: 1.5 rem;\n  }\n"])), mediaTemplates_1.default.TABLET(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n  "]))), mediaTemplates_1.default.TABLET(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: block;\n  "]))));
-var HeaderImageStyled = styled_components_1.default.img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  width: 100%;\n  border-radius: 10px;\n"])));
+var ProjectBodyStyled = styled_components_1.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  p {\n    font-family: \"Georgia Pro Regular\";\n  }\n  h1,\n  h2,\n  h3,\n  h4,\n  h5,\n  h6 {\n    font-family: \"Fann Grotesque SemiBold\";\n  }\n\n  .question {\n    font-family: \"Fann Grotesque SemiBold Italic\";\n  }\n  .question span {\n    text-decoration: underline;\n  }\n  img {\n    width: 100%;\n  }\n\n  .half > img {\n    width: 49%;\n    height: auto;\n    ", "\n  }\n  .half > iframe {\n    width: 49%;\n    ", "\n  }\n\n  figure {\n    display: block;\n    ", ";\n  }\n\n  figure figcaption {\n    font-family: \"Fann Grotesque Thin Italic\";\n  }\n\n  li {\n    font-family: \"Georgia Pro Regular\";\n\n    margin-bottom: 0.5rem;\n  }\n\n  blockquote {\n    padding-left: 1.618em;\n    padding-right: 1.618em;\n    border-left: 6px solid #3498db;\n  }\n  blockquote p {\n    font-family: \"Georgia Pro Italic\", \"Segoe UI\", Arial, sans-serif;\n\n    font-size: 1rem;\n    line-height: 1;\n    margin-bottom: 24 px;\n    margin-bottom: 1.5 rem;\n  }\n  blockquote p strong {\n    font-family: \"Georgia Pro Bold Italic\";\n  }\n"])), mediaTemplates_1.default.TABLET(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n  "]))), mediaTemplates_1.default.TABLET(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n  "]))), mediaTemplates_1.default.TABLET(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    display: block;\n  "]))));
+var HeaderImageStyled = styled_components_1.default.img(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  width: 100%;\n  border-radius: 10px;\n"])));
 
 var ProjectBody = function ProjectBody(_ref2) {
   var bodyHtml = _ref2.bodyHtml;
@@ -80918,7 +80930,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52142" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56586" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

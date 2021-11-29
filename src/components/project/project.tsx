@@ -56,6 +56,12 @@ const ProjectBodyStyled = styled.div`
     width: 100%;
   `}
   }
+  .half > iframe {
+    width: 49%;
+    ${MEDIA.TABLET`
+    width: 100%;
+  `}
+  }
 
   figure {
     display: block;
@@ -80,12 +86,15 @@ const ProjectBodyStyled = styled.div`
     border-left: 6px solid #3498db;
   }
   blockquote p {
-    font-family: "Fann Grotesque Regular", "Segoe UI", Arial, sans-serif;
+    font-family: "Georgia Pro Italic", "Segoe UI", Arial, sans-serif;
 
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1;
     margin-bottom: 24 px;
     margin-bottom: 1.5 rem;
+  }
+  blockquote p strong {
+    font-family: "Georgia Pro Bold Italic";
   }
 `;
 
